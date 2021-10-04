@@ -20,6 +20,15 @@ public class AbilityCard extends Card {
         this.query = query;
     }
 
+    /**
+     * Gets the Ability Card's query.
+     *
+     * @return The ability card's query.
+     * */
+    public Query getQuery() {
+        return query;
+    }
+
     @Override
     public void activate(Player owner, BattleContext battleContext) {
         if (query.check(owner, battleContext)) {

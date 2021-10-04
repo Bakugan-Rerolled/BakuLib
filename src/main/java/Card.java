@@ -7,5 +7,15 @@
  * */
 public abstract class Card extends Item {
     protected Effect effect;
+
+    /**
+     * Gets the Card's effect.
+     *
+     * @return The card's effect.
+     * */
+    public Effect getEffect() {
+        return effect;
+    }
+
     public abstract void activate(Player owner, BattleContext battleContext);
 }
