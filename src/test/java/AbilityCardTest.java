@@ -1,17 +1,19 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import static com.github.stefanbirkner.systemlambda.SystemLambda.withTextFromSystemIn;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class AbilityCardTest {
     private static Query isPyrus;
-    private static Effect transferGPower;
+    private static Effect transferGPowerPyrus;
 
     @BeforeAll
     static void setup() {
@@ -29,7 +31,7 @@ public class AbilityCardTest {
             return false;
         }));
 
-        transferGPower = (((owner, battleContext) -> {
+        transferGPowerPyrus = (((owner, battleContext) -> {
 
             int GPOWER_TRANSFER_AMOUNT = 100;
 
@@ -53,29 +55,21 @@ public class AbilityCardTest {
             UserSelectionCLI<Bakugan> userSelectionCLI = new UserSelectionCLI<>();
 
             // Query player for which Bakugan to increase GPower of
-            /*
-            TODO: Implement
             List<Bakugan> bakuganToIncreaseGPower = userSelectionCLI
                     .setMessage("Pick a Bakugan for GPower increase")
                     .setOptions(alliedBakugan)
                     .setMaxSelection(1)
                     .select();
 
-             */
-
             // Query player for which Bakugan to decrease GPower of
-            /*
-            TODO: Implement
             List<Bakugan> bakuganToDecreaseGPower = userSelectionCLI
                     .setMessage("Pick a Bakugan for GPower decrease")
                     .setOptions(enemyBakugan)
                     .select();
 
-             */
-
             // Increase/decrease GPower of respective Bakugan selected above
-            // bakuganToIncreaseGPower.get(0).changeGPower(GPOWER_TRANSFER_AMOUNT);
-            // bakuganToDecreaseGPower.get(0).changeGPower(-1 * GPOWER_TRANSFER_AMOUNT);
+            bakuganToIncreaseGPower.get(0).changeGPower(GPOWER_TRANSFER_AMOUNT);
+            bakuganToDecreaseGPower.get(0).changeGPower(-1 * GPOWER_TRANSFER_AMOUNT);
 
         }));
 
@@ -83,28 +77,71 @@ public class AbilityCardTest {
 
     @Test
     public void abilityCardHasName() {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPower);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
         assertEquals(powerTransfer.getName(), "Power Transfer");
     }
 
     @Test
     public void abilityCardHasEffect() {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPower);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
         assertNotNull(powerTransfer.getEffect());
     }
 
     @Test
     public void abilityCardHasQuery() {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPower, isPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
         assertNotNull(powerTransfer.getQuery());
     }
 
-    /*
-    TODO: Implement
-    @Test
-    public void abilityCardWithoutQueryHasWorkingEffect() {}
 
     @Test
-    public void abilityCardWithQueryHasWorkingEffect() {}
-     */
+    public void abilityCardWithoutQueryHasWorkingEffect() throws Exception {
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
+
+        Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan limulus = new Bakugan("Limulus", 260, Attribute.AQUOS);
+
+        Deck danDeck = new Deck(new ArrayList<>(){{add(tuskor);}}, null, null);
+        Deck maruchoDeck = new Deck(new ArrayList<>(){{add(limulus);}}, null, null);
+
+        Player dan = new Player("Dan", danDeck);
+        Player marucho = new Player("Marucho", maruchoDeck);
+
+        BattleContext battleContext = new BattleContext(null, null,
+                new ArrayList<>(){{add(tuskor); add(limulus); }},
+                new ArrayList<>(){{add(dan); add(marucho);}});
+
+        withTextFromSystemIn("1","1").execute(()-> {
+            powerTransfer.activate(dan, battleContext);
+            assertEquals(350, tuskor.getGPower());
+            assertEquals(160, limulus.getGPower());
+        });
+
+    }
+
+    @Test
+    public void abilityCardWithQueryHasWorkingEffect() throws Exception {
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
+
+        Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan limulus = new Bakugan("Limulus", 260, Attribute.AQUOS);
+
+        Deck danDeck = new Deck(new ArrayList<>(){{add(tuskor);}}, null, null);
+        Deck maruchoDeck = new Deck(new ArrayList<>(){{add(limulus);}}, null, null);
+
+        Player dan = new Player("Dan", danDeck);
+        Player marucho = new Player("Marucho", maruchoDeck);
+
+        BattleContext battleContext = new BattleContext(null, null,
+                new ArrayList<>(){{add(tuskor); add(limulus); }},
+                new ArrayList<>(){{add(dan); add(marucho);}});
+
+        withTextFromSystemIn("1","1").execute(()-> {
+            powerTransfer.activate(dan, battleContext);
+            assertEquals(350, tuskor.getGPower());
+            assertEquals(160, limulus.getGPower());
+        });
+
+    }
+
 }
