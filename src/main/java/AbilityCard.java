@@ -1,3 +1,10 @@
+/**
+ * Represents an Ability Card.
+ *
+ * @author Matt Eden
+ * @version 0.1
+ * @since 0.1
+ * */
 public class AbilityCard extends Card {
     private final Query query;
 
