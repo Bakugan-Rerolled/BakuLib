@@ -8,7 +8,7 @@ Simply add the following depedency to your `pom.xml`:
 ```
 <dependency>
     <groupId>nz.bakuganrerolled</groupId>
-    <artifactId>core-java-library</artifactId>
+    <artifactId>bakulib</artifactId>
     <version>{version}</version>
 </dependency>
 ```
