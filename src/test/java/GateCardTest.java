@@ -36,10 +36,31 @@ public class GateCardTest {
         assertNotNull(pyrusBoost.getEffect());
     }
 
-    /*
-    TODO: Implement
     @Test
-    public void gateCardHasWorkingEffect() {}
-     */
+    public void gateCardHasWorkingEffect() {
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
+
+        Bakugan warius = new Bakugan("Warius", 280, Attribute.PYRUS);
+        Bakugan robotallion = new Bakugan("Robotallion", 300, Attribute.HAOS);
+
+        Deck danDeck = new Deck(new ArrayList<>(){{add(warius);}}, null, null);
+        Deck runoDeck = new Deck(new ArrayList<>(){{add(robotallion);}}, null, null);
+
+        Player dan = new Player("Dan", danDeck);
+        Player runo = new Player("Runo", runoDeck);
+
+        BattleContext battleContext = new BattleContext(null, pyrusBoost, new ArrayList<>(){{
+            add(warius);
+            add(robotallion);
+        }}, new ArrayList<>(){{
+            add(dan);
+            add(runo);
+        }});
+
+        pyrusBoost.activate(dan, battleContext);
+
+        assertEquals(380, warius.getGPower());
+
+    }
 
 }
