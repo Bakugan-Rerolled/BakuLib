@@ -4,7 +4,7 @@ This is a Maven library which defines a set of classes that make Bakugan-oriente
 and more streamlined.
 
 ## Usage
-Simply add the following depedency to your `pom.xml`:
+Simply run `mvn install` and add the following dependency to your `pom.xml`:
 ```
 <dependency>
     <groupId>nz.bakuganrerolled</groupId>
