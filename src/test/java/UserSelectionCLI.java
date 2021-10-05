@@ -2,6 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * CLI Implementation of UserSelection.
+ *
+ * @author Matt Eden
+ * @version 0.1
+ * @since 0.1
+ * */
 public class UserSelectionCLI<T> extends UserSelection<T> {
 
     public UserSelectionCLI() {
