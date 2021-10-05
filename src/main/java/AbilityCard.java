@@ -4,7 +4,7 @@
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public class AbilityCard extends Card {
     private final Query query;
 
@@ -24,7 +24,7 @@ public class AbilityCard extends Card {
      * Gets the Ability Card's query.
      *
      * @return The ability card's query.
-     * */
+     */
     public Query getQuery() {
         return query;
     }

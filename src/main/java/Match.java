@@ -6,7 +6,7 @@ import java.util.List;
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public class Match {
     private final Field field;
     private final List<Player> players;
@@ -20,7 +20,7 @@ public class Match {
      * Gets the field.
      *
      * @return The field.
-     * */
+     */
     public Field getField() {
         return field;
     }
@@ -29,7 +29,7 @@ public class Match {
      * Gets the players in a match.
      *
      * @return The players in the match.
-     * */
+     */
     public List<Player> getPlayers() {
         return players;
     }

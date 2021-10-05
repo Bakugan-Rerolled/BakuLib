@@ -4,7 +4,7 @@
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public abstract class Card extends Item {
     protected Effect effect;
 
@@ -12,7 +12,7 @@ public abstract class Card extends Item {
      * Gets the Card's effect.
      *
      * @return The card's effect.
-     * */
+     */
     public Effect getEffect() {
         return effect;
     }

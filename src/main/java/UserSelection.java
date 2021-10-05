@@ -6,7 +6,7 @@ import java.util.List;
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public abstract class UserSelection<T> {
     protected List<T> options;
     protected String message;

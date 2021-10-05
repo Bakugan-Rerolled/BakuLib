@@ -8,10 +8,10 @@ import java.util.Set;
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public class Bakugan extends Item {
-    private int gpower;
     private final Set<Attribute> attributes;
+    private int gpower;
 
     public Bakugan(String name, int gpower, Attribute... attributes) {
         this.name = name;
@@ -23,14 +23,14 @@ public class Bakugan extends Item {
      * Gets the Bakugan's attribute(s).
      *
      * @return A set of attributes
-     * */
+     */
     public Set<Attribute> getAttributes() {
         return attributes;
     }
 
     /**
      * Adds an attribute to the Bakugan.
-     * */
+     */
     public void addAttribute(Attribute attribute) {
         attributes.add(attribute);
     }
@@ -39,14 +39,14 @@ public class Bakugan extends Item {
      * Gets the Bakugan's GPower.
      *
      * @return Bakugan's GPower
-     * */
+     */
     public int getGPower() {
         return gpower;
     }
 
     /**
      * Changes the Bakugan's GPower.
-     * */
+     */
     public void changeGPower(int gpower) {
         this.gpower += gpower;
     }

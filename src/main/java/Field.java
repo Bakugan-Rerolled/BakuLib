@@ -4,7 +4,7 @@
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public interface Field {
     void setGateCard(GateCard gc);
 }

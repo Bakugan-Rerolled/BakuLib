@@ -6,7 +6,7 @@ import java.util.List;
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public class Deck {
     private final List<Bakugan> bakugan;
     private final List<GateCard> gateCards;
@@ -22,7 +22,7 @@ public class Deck {
      * Gets the Bakugan in the deck.
      *
      * @return List of Bakugan in the deck.
-     * */
+     */
     public List<Bakugan> getBakugan() {
         return bakugan;
     }
@@ -31,7 +31,7 @@ public class Deck {
      * Gets the Gate Cards in the deck.
      *
      * @return List of Gate Cards in the deck.
-     * */
+     */
     public List<GateCard> getGateCards() {
         return gateCards;
     }
@@ -40,7 +40,7 @@ public class Deck {
      * Gets the Ability Cards in the deck.
      *
      * @return List of Ability Cards in the deck.
-     * */
+     */
     public List<AbilityCard> getAbilityCards() {
         return abilityCards;
     }
