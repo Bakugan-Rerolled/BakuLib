@@ -1,16 +1,16 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.withTextFromSystemIn;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@ExtendWith(LoggingExtension.class)
 public class AbilityCardTest {
     private static Query isPyrus;
     private static Effect transferGPowerPyrus;
@@ -101,17 +101,27 @@ public class AbilityCardTest {
         Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
         Bakugan limulus = new Bakugan("Limulus", 260, Attribute.AQUOS);
 
-        Deck danDeck = new Deck(new ArrayList<>(){{add(tuskor);}}, null, null);
-        Deck maruchoDeck = new Deck(new ArrayList<>(){{add(limulus);}}, null, null);
+        Deck danDeck = new Deck(new ArrayList<>() {{
+            add(tuskor);
+        }}, null, null);
+        Deck maruchoDeck = new Deck(new ArrayList<>() {{
+            add(limulus);
+        }}, null, null);
 
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
         BattleContext battleContext = new BattleContext(null, null,
-                new ArrayList<>(){{add(tuskor); add(limulus); }},
-                new ArrayList<>(){{add(dan); add(marucho);}});
+                new ArrayList<>() {{
+                    add(tuskor);
+                    add(limulus);
+                }},
+                new ArrayList<>() {{
+                    add(dan);
+                    add(marucho);
+                }});
 
-        withTextFromSystemIn("1","1").execute(()-> {
+        withTextFromSystemIn("1", "1").execute(() -> {
             powerTransfer.activate(dan, battleContext);
             assertEquals(350, tuskor.getGPower());
             assertEquals(160, limulus.getGPower());
@@ -126,17 +136,27 @@ public class AbilityCardTest {
         Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
         Bakugan limulus = new Bakugan("Limulus", 260, Attribute.AQUOS);
 
-        Deck danDeck = new Deck(new ArrayList<>(){{add(tuskor);}}, null, null);
-        Deck maruchoDeck = new Deck(new ArrayList<>(){{add(limulus);}}, null, null);
+        Deck danDeck = new Deck(new ArrayList<>() {{
+            add(tuskor);
+        }}, null, null);
+        Deck maruchoDeck = new Deck(new ArrayList<>() {{
+            add(limulus);
+        }}, null, null);
 
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
         BattleContext battleContext = new BattleContext(null, null,
-                new ArrayList<>(){{add(tuskor); add(limulus); }},
-                new ArrayList<>(){{add(dan); add(marucho);}});
+                new ArrayList<>() {{
+                    add(tuskor);
+                    add(limulus);
+                }},
+                new ArrayList<>() {{
+                    add(dan);
+                    add(marucho);
+                }});
 
-        withTextFromSystemIn("1","1").execute(()-> {
+        withTextFromSystemIn("1", "1").execute(() -> {
             powerTransfer.activate(dan, battleContext);
             assertEquals(350, tuskor.getGPower());
             assertEquals(160, limulus.getGPower());

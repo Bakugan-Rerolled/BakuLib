@@ -1,10 +1,12 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.EnumSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+@ExtendWith(LoggingExtension.class)
 public class BakuganTest {
 
     @Test

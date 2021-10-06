@@ -1,13 +1,13 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@ExtendWith(LoggingExtension.class)
 public class GateCardTest {
     private static Effect increasePyrusGPower100;
 
@@ -43,16 +43,20 @@ public class GateCardTest {
         Bakugan warius = new Bakugan("Warius", 280, Attribute.PYRUS);
         Bakugan robotallion = new Bakugan("Robotallion", 300, Attribute.HAOS);
 
-        Deck danDeck = new Deck(new ArrayList<>(){{add(warius);}}, null, null);
-        Deck runoDeck = new Deck(new ArrayList<>(){{add(robotallion);}}, null, null);
+        Deck danDeck = new Deck(new ArrayList<>() {{
+            add(warius);
+        }}, null, null);
+        Deck runoDeck = new Deck(new ArrayList<>() {{
+            add(robotallion);
+        }}, null, null);
 
         Player dan = new Player("Dan", danDeck);
         Player runo = new Player("Runo", runoDeck);
 
-        BattleContext battleContext = new BattleContext(null, pyrusBoost, new ArrayList<>(){{
+        BattleContext battleContext = new BattleContext(null, pyrusBoost, new ArrayList<>() {{
             add(warius);
             add(robotallion);
-        }}, new ArrayList<>(){{
+        }}, new ArrayList<>() {{
             add(dan);
             add(runo);
         }});
