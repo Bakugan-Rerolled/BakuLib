@@ -36,6 +36,21 @@ public class BakuganTest {
     }
 
     @Test
+    void bakuganGainsAttribute() {
+        Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
+        tuskor.addAttribute(Attribute.SUBTERRA);
+        assertEquals(tuskor.getAttributes(), EnumSet.of(Attribute.PYRUS, Attribute.SUBTERRA));
+    }
+
+    @Test
+    void bakuganChangesAttribute() {
+        Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
+        tuskor.addAttribute(Attribute.SUBTERRA);
+        tuskor.removeAttribute(Attribute.PYRUS);
+        assertEquals(tuskor.getAttributes(), EnumSet.of(Attribute.SUBTERRA));
+    }
+
+    @Test
     void bakuganDoesNotHaveAttribute() {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
         assertFalse(tuskor.getAttributes().contains(Attribute.AQUOS));
