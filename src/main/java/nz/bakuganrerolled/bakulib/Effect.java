@@ -1,3 +1,5 @@
+package nz.bakuganrerolled.bakulib;
+
 /**
  * Represents an effect which is activated by a card.
  *

@@ -1,3 +1,5 @@
+package nz.bakuganrerolled.bakulib;
+
 /**
  * Represents a card, such as a Gate Card or Ability Card.
  *

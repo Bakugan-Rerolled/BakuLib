@@ -1,3 +1,5 @@
+package nz.bakuganrerolled.bakulib;
+
 /**
  * Represents the six elemental attributes.
  *

@@ -1,3 +1,5 @@
+package nz.bakuganrerolled.bakulib;
+
 import java.util.List;
 
 /**
