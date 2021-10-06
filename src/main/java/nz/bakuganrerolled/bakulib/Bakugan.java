@@ -38,6 +38,13 @@ public class Bakugan extends Item {
     }
 
     /**
+     * Removes an attribute from the Bakugan.
+     */
+    public void removeAttribute(Attribute attribute) {
+        attributes.remove(attribute);
+    }
+
+    /**
      * Gets the Bakugan's GPower.
      *
      * @return Bakugan's GPower
