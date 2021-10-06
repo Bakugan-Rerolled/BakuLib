@@ -9,6 +9,13 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import java.lang.reflect.Method;
 import java.util.Optional;
 
+/**
+ * A JUnit extension to provide logging before and after tests.
+ *
+ * @author Matt Eden
+ * @version 0.1
+ * @since 0.1
+ * */
 public class LoggingExtension implements BeforeEachCallback, AfterEachCallback {
 
     static final Logger LOG = LogManager.getLogger();
