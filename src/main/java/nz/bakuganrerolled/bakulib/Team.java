@@ -22,7 +22,7 @@ public class Team {
      * Get players in the team.
      *
      * @return List of Players
-     * */
+     */
     public List<Player> getPlayers() {
         return players;
     }
@@ -31,7 +31,7 @@ public class Team {
      * Get the colour of the team.
      *
      * @return Team Colour
-     * */
+     */
     public TeamColour getColour() {
         return colour;
     }

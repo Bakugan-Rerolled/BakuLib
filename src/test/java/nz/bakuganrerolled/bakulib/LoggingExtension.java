@@ -15,19 +15,19 @@ import java.util.Optional;
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public class LoggingExtension implements BeforeEachCallback, AfterEachCallback {
 
     static final Logger LOG = LogManager.getLogger();
 
     @Override
-    public void beforeEach(ExtensionContext extensionContext) throws Exception {
+    public void beforeEach(ExtensionContext extensionContext) {
         Optional<Method> test = extensionContext.getTestMethod();
         test.ifPresent(method -> LOG.info("Running test: " + method.getName()));
     }
 
     @Override
-    public void afterEach(ExtensionContext extensionContext) throws Exception {
+    public void afterEach(ExtensionContext extensionContext) {
         boolean testResult = extensionContext.getExecutionException().isPresent();
         Optional<Method> test = extensionContext.getTestMethod();
         test.ifPresent(method -> LOG.info(String.format("Result of [%s] is: %s",
