@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author Matt Eden
  * @version 0.1
  * @since 0.1
- * */
+ */
 public class UserSelectionCLI<T> extends UserSelection<T> {
 
     public UserSelectionCLI() {
@@ -41,6 +41,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
              * */
             System.out.print("Selection: ");
             selection = sc.nextInt();
+            System.out.println(System.lineSeparator());
             selected.add(options.get(selection - 1));
             remaining--;
         }
