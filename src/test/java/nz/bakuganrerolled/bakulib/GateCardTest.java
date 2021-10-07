@@ -16,8 +16,8 @@ public class GateCardTest {
     @BeforeAll
     static void setup() {
 
-        increasePyrusGPower100 = (((owner, battleContext) -> {
-            for (Bakugan b : battleContext.getBakugan()) {
+        increasePyrusGPower100 = (((owner, context) -> {
+            for (Bakugan b : context.getBakugan()) {
                 if (b.getAttributes().contains(Attribute.PYRUS)) {
                     b.changeGPower(100);
                 }
@@ -55,7 +55,7 @@ public class GateCardTest {
         Player dan = new Player("Dan", danDeck);
         Player runo = new Player("Runo", runoDeck);
 
-        BattleContext battleContext = new BattleContext(null, pyrusBoost, new ArrayList<>() {{
+        Context context = new Context(null, pyrusBoost, new ArrayList<>() {{
             add(warius);
             add(robotallion);
         }}, new ArrayList<>() {{
@@ -63,7 +63,7 @@ public class GateCardTest {
             add(runo);
         }});
 
-        pyrusBoost.activate(dan, battleContext);
+        pyrusBoost.activate(dan, context);
 
         assertEquals(380, warius.getGPower());
 

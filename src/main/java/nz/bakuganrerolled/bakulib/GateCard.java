@@ -15,7 +15,7 @@ public class GateCard extends Card {
     }
 
     @Override
-    public void activate(Player owner, BattleContext battleContext) {
-        effect.activate(owner, battleContext);
+    public void activate(Player owner, Context context) {
+        effect.activate(owner, context);
     }
 }

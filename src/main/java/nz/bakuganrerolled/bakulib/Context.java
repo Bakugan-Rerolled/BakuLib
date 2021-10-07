@@ -9,17 +9,17 @@ import java.util.List;
  * @version 0.1
  * @since 0.1
  */
-public class BattleContext {
+public class Context {
     private final Match match;
     private final GateCard gateCard;
     private final List<Bakugan> bakugan;
-    private final List<Player> playersInBattle;
+    private final List<Player> players;
 
-    public BattleContext(Match match, GateCard gateCard, List<Bakugan> bakugan, List<Player> playersInBattle) {
+    public Context(Match match, GateCard gateCard, List<Bakugan> bakugan, List<Player> players) {
         this.match = match;
         this.gateCard = gateCard;
         this.bakugan = bakugan;
-        this.playersInBattle = playersInBattle;
+        this.players = players;
     }
 
     /**
@@ -54,7 +54,7 @@ public class BattleContext {
      *
      * @return List of players in the battle.
      */
-    public List<Player> getPlayersInBattle() {
-        return playersInBattle;
+    public List<Player> getPlayers() {
+        return players;
     }
 }

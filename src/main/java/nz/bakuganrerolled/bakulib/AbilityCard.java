@@ -32,9 +32,9 @@ public class AbilityCard extends Card {
     }
 
     @Override
-    public void activate(Player owner, BattleContext battleContext) {
-        if (query.check(owner, battleContext)) {
-            effect.activate(owner, battleContext);
+    public void activate(Player owner, Context context) {
+        if (query.check(owner, context)) {
+            effect.activate(owner, context);
         }
     }
 }

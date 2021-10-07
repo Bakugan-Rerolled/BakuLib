@@ -8,5 +8,5 @@ package nz.bakuganrerolled.bakulib;
  * @since 0.1
  */
 public interface Effect {
-    void activate(Player owner, BattleContext battleContext);
+    void activate(Player owner, Context battleContext);
 }

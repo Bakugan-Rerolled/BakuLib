@@ -19,5 +19,5 @@ public abstract class Card extends Item {
         return effect;
     }
 
-    public abstract void activate(Player owner, BattleContext battleContext);
+    public abstract void activate(Player owner, Context battleContext);
 }

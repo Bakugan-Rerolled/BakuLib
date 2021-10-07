@@ -20,9 +20,9 @@ public class AbilityCardTest {
     @BeforeAll
     static void setup() {
 
-        isPyrus = (((owner, battleContext) -> {
+        isPyrus = (((owner, context) -> {
             // Collect all allied bakugan into a list
-            List<Bakugan> alliedBakugan = battleContext.getBakugan().stream().filter(
+            List<Bakugan> alliedBakugan = context.getBakugan().stream().filter(
                     (bakugan -> owner.getDeck().getBakugan().contains(bakugan))
             ).collect(Collectors.toList());
 
@@ -33,7 +33,7 @@ public class AbilityCardTest {
             return false;
         }));
 
-        transferGPowerPyrus = (((owner, battleContext) -> {
+        transferGPowerPyrus = (((owner, context) -> {
 
             int GPOWER_TRANSFER_AMOUNT = 100;
 
@@ -44,13 +44,13 @@ public class AbilityCardTest {
              * */
 
             // Collect all allied bakugan into a list
-            List<Bakugan> alliedBakugan = battleContext.getBakugan().stream()
+            List<Bakugan> alliedBakugan = context.getBakugan().stream()
                     .filter(bakugan -> owner.getDeck().getBakugan().contains(bakugan))
                     .filter(bakugan -> bakugan.getAttributes().contains(Attribute.PYRUS))
                     .collect(Collectors.toList());
 
             // Collect all non-allied bakugan into a list
-            List<Bakugan> enemyBakugan = battleContext.getBakugan().stream().filter(
+            List<Bakugan> enemyBakugan = context.getBakugan().stream().filter(
                     (bakugan -> !owner.getDeck().getBakugan().contains(bakugan))
             ).collect(Collectors.toList());
 
@@ -67,6 +67,7 @@ public class AbilityCardTest {
             List<Bakugan> bakuganToDecreaseGPower = userSelectionCLI
                     .setMessage("Pick a Bakugan for GPower decrease")
                     .setOptions(enemyBakugan)
+                    .setMaxSelection(1)
                     .select();
 
             // Increase/decrease GPower of respective Bakugan selected above
@@ -113,7 +114,7 @@ public class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
-        BattleContext battleContext = new BattleContext(null, null,
+        Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
                     add(tuskor);
                     add(limulus);
@@ -148,7 +149,7 @@ public class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
-        BattleContext battleContext = new BattleContext(null, null,
+        Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
                     add(tuskor);
                     add(limulus);

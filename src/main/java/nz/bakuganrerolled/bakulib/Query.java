@@ -8,5 +8,5 @@ package nz.bakuganrerolled.bakulib;
  * @since 0.1
  */
 public interface Query {
-    boolean check(Player owner, BattleContext battleContext);
+    boolean check(Player owner, Context battleContext);
 }
