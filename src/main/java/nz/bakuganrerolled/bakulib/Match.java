@@ -11,11 +11,11 @@ import java.util.List;
  */
 public class Match {
     private final Field field;
-    private final List<Player> players;
+    private final List<Team> teams;
 
-    public Match(List<Player> players, Field field) {
+    public Match(List<Team> teams, Field field) {
         this.field = field;
-        this.players = players;
+        this.teams = teams;
     }
 
     /**
@@ -28,11 +28,11 @@ public class Match {
     }
 
     /**
-     * Gets the players in a match.
+     * Gets the teams in a match.
      *
-     * @return The players in the match.
+     * @return The teams in the match.
      */
-    public List<Player> getPlayers() {
-        return players;
+    public List<Team> getTeams() {
+        return teams;
     }
 }
