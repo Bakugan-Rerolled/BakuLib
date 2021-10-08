@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class Match {
 
     public Match(List<Team> teams, Field field) {
         this.field = field;
-        this.teams = teams;
+        this.teams = Collections.unmodifiableList(teams);
     }
 
     /**

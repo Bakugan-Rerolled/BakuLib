@@ -43,7 +43,8 @@ public class MatchTest {
     @Test
     public void matchHasField() {
         TestField testField = new TestField();
-        Match match = new Match(null, testField);
+        Team team = new Team(new ArrayList<>(), TeamColour.RED);
+        Match match = new Match(new ArrayList<>(){{add(team);}}, testField);
         assertEquals(testField, match.getField());
     }
 }
