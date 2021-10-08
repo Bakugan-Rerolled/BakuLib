@@ -1,6 +1,8 @@
 package nz.bakuganrerolled.bakulib;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Represents a Team.
@@ -16,6 +18,8 @@ public class Team {
     public Team(List<Player> players, TeamColour colour) {
         this.players = players;
         this.colour = colour;
+
+        for (Player player : players) player.setTeam(this);
     }
 
     /**
@@ -34,6 +38,15 @@ public class Team {
      */
     public TeamColour getColour() {
         return colour;
+    }
+
+    /**
+     * Gets every bakugan from every player in the team
+     *
+     * @return List of bakugan in team
+     */
+    public List<Bakugan> getBakugan() {
+        return players.stream().flatMap(p -> p.getDeck().getBakugan().stream()).collect(Collectors.toList());
     }
 
 }

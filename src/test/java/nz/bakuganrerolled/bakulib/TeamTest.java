@@ -29,7 +29,9 @@ public class TeamTest {
     @Test
     public void teamHasColour() {
 
-        Team team = new Team(null, TeamColour.GREEN);
+        Player dan = new Player("Dan", null);
+
+        Team team = new Team(new ArrayList<>(){{add(dan);}}, TeamColour.GREEN);
 
         assertEquals(TeamColour.GREEN, team.getColour());
 

@@ -10,10 +10,12 @@ package nz.bakuganrerolled.bakulib;
 public class Player {
     private final String name;
     private final Deck deck;
+    private Team team;
 
     public Player(String name, Deck deck) {
         this.name = name;
         this.deck = deck;
+        this.team = null;
     }
 
     /**
@@ -32,5 +34,21 @@ public class Player {
      */
     public Deck getDeck() {
         return deck;
+    }
+
+    /**
+     * Gets the player's team.
+     *
+     * @return Player's team.
+     */
+    public Team getTeam() {
+        return team;
+    }
+
+    /**
+     * Sets the player's team.
+     */
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

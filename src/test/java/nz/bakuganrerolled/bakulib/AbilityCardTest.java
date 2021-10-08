@@ -45,13 +45,13 @@ public class AbilityCardTest {
 
             // Collect all allied bakugan into a list
             List<Bakugan> alliedBakugan = context.getBakugan().stream()
-                    .filter(bakugan -> owner.getDeck().getBakugan().contains(bakugan))
+                    .filter(bakugan -> owner.getTeam().getBakugan().contains(bakugan))
                     .filter(bakugan -> bakugan.getAttributes().contains(Attribute.PYRUS))
                     .collect(Collectors.toList());
 
             // Collect all non-allied bakugan into a list
             List<Bakugan> enemyBakugan = context.getBakugan().stream().filter(
-                    (bakugan -> !owner.getDeck().getBakugan().contains(bakugan))
+                    (bakugan -> !owner.getTeam().getBakugan().contains(bakugan))
             ).collect(Collectors.toList());
 
             UserSelectionCLI<Bakugan> userSelectionCLI = new UserSelectionCLI<>();
@@ -114,6 +114,9 @@ public class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
+        Team danTeam = new Team(new ArrayList<>(){{add(dan);}}, TeamColour.RED);
+        Team maruchoTeam = new Team(new ArrayList<>(){{add(marucho);}}, TeamColour.BLUE);
+
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
                     add(tuskor);
@@ -148,6 +151,9 @@ public class AbilityCardTest {
 
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
+
+        Team danTeam = new Team(new ArrayList<>(){{add(dan);}}, TeamColour.RED);
+        Team maruchoTeam = new Team(new ArrayList<>(){{add(marucho);}}, TeamColour.BLUE);
 
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
