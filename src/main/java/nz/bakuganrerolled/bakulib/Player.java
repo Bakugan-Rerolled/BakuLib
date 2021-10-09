@@ -51,4 +51,11 @@ public class Player {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    @Override
+    public String toString() {
+        if (team != null)
+            return String.format("%s (Team %s)", name, team.getColour());
+        return name;
+    }
 }
