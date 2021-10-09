@@ -108,12 +108,8 @@ class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
-        Team danTeam = new Team(new ArrayList<>() {{
-            add(dan);
-        }}, TeamColour.RED);
-        Team maruchoTeam = new Team(new ArrayList<>() {{
-            add(marucho);
-        }}, TeamColour.BLUE);
+        Team danTeam = new Team(TeamColour.RED, dan);
+        Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
 
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
@@ -150,12 +146,8 @@ class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
-        Team danTeam = new Team(new ArrayList<>() {{
-            add(dan);
-        }}, TeamColour.RED);
-        Team maruchoTeam = new Team(new ArrayList<>() {{
-            add(marucho);
-        }}, TeamColour.BLUE);
+        Team danTeam = new Team(TeamColour.RED, dan);
+        Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
 
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{

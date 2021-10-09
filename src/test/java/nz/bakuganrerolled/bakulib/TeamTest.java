@@ -15,10 +15,7 @@ class TeamTest {
         Player dan = new Player("Dan", null);
         Player shuji = new Player("Shuji", null);
 
-        Team team = new Team(new ArrayList<>() {{
-            add(dan);
-            add(shuji);
-        }}, TeamColour.RED);
+        Team team = new Team(TeamColour.RED, dan, shuji);
 
         assertEquals(new ArrayList<>() {{
             add(dan);
@@ -31,9 +28,7 @@ class TeamTest {
 
         Player dan = new Player("Dan", null);
 
-        Team team = new Team(new ArrayList<>() {{
-            add(dan);
-        }}, TeamColour.GREEN);
+        Team team = new Team(TeamColour.GREEN, dan);
 
         assertEquals(TeamColour.GREEN, team.getColour());
 

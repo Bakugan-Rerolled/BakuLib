@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,8 +15,8 @@ public class Team {
     List<Player> players;
     TeamColour colour;
 
-    public Team(List<Player> players, TeamColour colour) {
-        this.players = players;
+    public Team(TeamColour colour, Player... players) {
+        this.players = Arrays.asList(players);
         this.colour = colour;
 
         for (Player player : players) player.setTeam(this);

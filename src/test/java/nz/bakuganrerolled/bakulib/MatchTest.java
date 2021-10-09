@@ -22,12 +22,8 @@ class MatchTest {
 
     @Test
     void matchHasTeams() {
-        Team team1 = new Team(new ArrayList<>() {{
-            add(shun);
-        }}, TeamColour.GREEN);
-        Team team2 = new Team(new ArrayList<>() {{
-            add(alice);
-        }}, TeamColour.BROWN);
+        Team team1 = new Team(TeamColour.GREEN, shun);
+        Team team2 = new Team(TeamColour.BROWN, alice);
 
         Match match = new Match(new ArrayList<>() {{
             add(team1);
@@ -43,7 +39,7 @@ class MatchTest {
     @Test
     void matchHasField() {
         TestField testField = new TestField();
-        Team team = new Team(new ArrayList<>(), TeamColour.RED);
+        Team team = new Team(TeamColour.RED);
         Match match = new Match(new ArrayList<>() {{
             add(team);
         }}, testField);
