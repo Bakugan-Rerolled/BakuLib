@@ -86,12 +86,14 @@ public class UserSelectionCLITest {
                     .select();
 
             int originalGPower = bakuOptions.get(0).getGPower();
+            int originalSize = bakuOptions.size();
             int newGPower = bakuOptions.get(0).getGPower() + 300;
 
             selected.get(0).changeGPower(300);
 
             assertNotEquals(originalGPower, bakuOptions.get(0).getGPower());
             assertEquals(newGPower, selected.get(0).getGPower());
+            assertEquals(originalSize, bakuOptions.size());
         });
     }
 
