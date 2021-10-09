@@ -13,7 +13,7 @@ public class AbilityCard extends Card {
     public AbilityCard(String name, Effect effect) {
         this.name = name;
         this.effect = effect;
-        this.query = (((owner, battleContext) -> true));
+        this.query = ((owner, context) -> true);
     }
 
     public AbilityCard(String name, Effect effect, Query query) {

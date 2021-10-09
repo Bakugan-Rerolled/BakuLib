@@ -9,37 +9,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @ExtendWith(LoggingExtension.class)
-public class BakuganTest {
+class BakuganTest {
 
     @Test
     void bakuganHasName() {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
-        assertEquals(tuskor.getName(), "Tuskor");
+        assertEquals("Tuskor", tuskor.getName());
     }
 
     @Test
     void bakuganHasGPower() {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
-        assertEquals(tuskor.getGPower(), 270);
+        assertEquals(270, tuskor.getGPower());
     }
 
     @Test
     void bakuganHasOneAttribute() {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
-        assertEquals(tuskor.getAttributes(), EnumSet.of(Attribute.PYRUS));
+        assertEquals(EnumSet.of(Attribute.PYRUS), tuskor.getAttributes());
     }
 
     @Test
     void bakuganHasMultipleAttributes() {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS, Attribute.SUBTERRA);
-        assertEquals(tuskor.getAttributes(), EnumSet.of(Attribute.PYRUS, Attribute.SUBTERRA));
+        assertEquals(EnumSet.of(Attribute.PYRUS, Attribute.SUBTERRA), tuskor.getAttributes());
     }
 
     @Test
     void bakuganGainsAttribute() {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
         tuskor.addAttribute(Attribute.SUBTERRA);
-        assertEquals(tuskor.getAttributes(), EnumSet.of(Attribute.PYRUS, Attribute.SUBTERRA));
+        assertEquals(EnumSet.of(Attribute.PYRUS, Attribute.SUBTERRA), tuskor.getAttributes());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class BakuganTest {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
         tuskor.addAttribute(Attribute.SUBTERRA);
         tuskor.removeAttribute(Attribute.PYRUS);
-        assertEquals(tuskor.getAttributes(), EnumSet.of(Attribute.SUBTERRA));
+        assertEquals(EnumSet.of(Attribute.SUBTERRA), tuskor.getAttributes());
     }
 
     @Test

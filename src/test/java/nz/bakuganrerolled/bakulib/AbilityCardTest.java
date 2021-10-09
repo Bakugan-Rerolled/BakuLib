@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(LoggingExtension.class)
-public class AbilityCardTest {
+class AbilityCardTest {
     private static Query isPyrus;
     private static Effect transferGPowerPyrus;
 
@@ -36,12 +36,6 @@ public class AbilityCardTest {
         transferGPowerPyrus = (((owner, context) -> {
 
             int GPOWER_TRANSFER_AMOUNT = 100;
-
-            /*
-             * Note: Assumption is made that Bakugan not owned
-             * by the activator of the card are opponent's Bakugan.
-             * TODO: Refactor to determine ally status using 'Team' instead of 'Player'
-             * */
 
             // Collect all allied bakugan into a list
             List<Bakugan> alliedBakugan = context.getBakugan().stream()
@@ -79,26 +73,26 @@ public class AbilityCardTest {
     }
 
     @Test
-    public void abilityCardHasName() {
+    void abilityCardHasName() {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
-        assertEquals(powerTransfer.getName(), "Power Transfer");
+        assertEquals("Power Transfer", powerTransfer.getName());
     }
 
     @Test
-    public void abilityCardHasEffect() {
+    void abilityCardHasEffect() {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
         assertNotNull(powerTransfer.getEffect());
     }
 
     @Test
-    public void abilityCardHasQuery() {
+    void abilityCardHasQuery() {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
         assertNotNull(powerTransfer.getQuery());
     }
 
 
     @Test
-    public void abilityCardWithoutQueryHasWorkingEffect() throws Exception {
+    void abilityCardWithoutQueryHasWorkingEffect() throws Exception {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
 
         Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
@@ -114,8 +108,12 @@ public class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
-        Team danTeam = new Team(new ArrayList<>(){{add(dan);}}, TeamColour.RED);
-        Team maruchoTeam = new Team(new ArrayList<>(){{add(marucho);}}, TeamColour.BLUE);
+        Team danTeam = new Team(new ArrayList<>() {{
+            add(dan);
+        }}, TeamColour.RED);
+        Team maruchoTeam = new Team(new ArrayList<>() {{
+            add(marucho);
+        }}, TeamColour.BLUE);
 
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
@@ -136,7 +134,7 @@ public class AbilityCardTest {
     }
 
     @Test
-    public void abilityCardWithQueryHasWorkingEffect() throws Exception {
+    void abilityCardWithQueryHasWorkingEffect() throws Exception {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
 
         Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
@@ -152,8 +150,12 @@ public class AbilityCardTest {
         Player dan = new Player("Dan", danDeck);
         Player marucho = new Player("Marucho", maruchoDeck);
 
-        Team danTeam = new Team(new ArrayList<>(){{add(dan);}}, TeamColour.RED);
-        Team maruchoTeam = new Team(new ArrayList<>(){{add(marucho);}}, TeamColour.BLUE);
+        Team danTeam = new Team(new ArrayList<>() {{
+            add(dan);
+        }}, TeamColour.RED);
+        Team maruchoTeam = new Team(new ArrayList<>() {{
+            add(marucho);
+        }}, TeamColour.BLUE);
 
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{

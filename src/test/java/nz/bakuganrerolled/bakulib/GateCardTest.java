@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(LoggingExtension.class)
-public class GateCardTest {
+class GateCardTest {
     private static Effect increasePyrusGPower100;
 
     @BeforeAll
@@ -27,19 +27,19 @@ public class GateCardTest {
     }
 
     @Test
-    public void gateCardHasName() {
+    void gateCardHasName() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
-        assertEquals(pyrusBoost.getName(), "Pyrus Boost");
+        assertEquals("Pyrus Boost", pyrusBoost.getName());
     }
 
     @Test
-    public void gateCardHasEffect() {
+    void gateCardHasEffect() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
         assertNotNull(pyrusBoost.getEffect());
     }
 
     @Test
-    public void gateCardHasWorkingEffect() {
+    void gateCardHasWorkingEffect() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
 
         Bakugan warius = new Bakugan("Warius", 280, Attribute.PYRUS);

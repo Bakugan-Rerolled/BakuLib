@@ -29,14 +29,14 @@ public class GateCard extends Card {
      * Get all Bakugan on the Gate Card
      *
      * @return List of Bakugan on Card
-     * */
+     */
     public List<Bakugan> getBakuganOnCard() {
         return bakuganOnCard;
     }
 
     /**
      * Places a Bakugan on the Gate Card
-     * */
+     */
     public void placeBakuganOnCard(Bakugan b) {
         bakuganOnCard.add(b);
     }

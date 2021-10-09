@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(LoggingExtension.class)
-public class PlayerTest {
+class PlayerTest {
 
     private static Deck testDeck;
 
@@ -37,18 +37,18 @@ public class PlayerTest {
     }
 
     @Test
-    public void playerHasName() {
+    void playerHasName() {
         Player dan = new Player("Dan", testDeck);
-        assertEquals(dan.getName(), "Dan");
+        assertEquals("Dan", dan.getName());
     }
 
     @Test
-    public void playerHasDeck() {
+    void playerHasDeck() {
         Player dan = new Player("Dan", testDeck);
         Deck deck = dan.getDeck();
 
-        assertEquals(deck.getBakugan().get(0).toString(), "Tuskor");
-        assertEquals(deck.getGateCards().get(0).toString(), "Pyrus Boost");
-        assertEquals(deck.getAbilityCards().get(0).toString(), "Power Transfer");
+        assertEquals("Tuskor", deck.getBakugan().get(0).toString());
+        assertEquals("Pyrus Boost", deck.getGateCards().get(0).toString());
+        assertEquals("Power Transfer", deck.getAbilityCards().get(0).toString());
     }
 }

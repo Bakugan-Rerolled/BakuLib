@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(LoggingExtension.class)
-public class TeamTest {
+class TeamTest {
     @Test
-    public void teamHasPlayers() {
+    void teamHasPlayers() {
 
         Player dan = new Player("Dan", null);
         Player shuji = new Player("Shuji", null);
@@ -27,11 +27,13 @@ public class TeamTest {
     }
 
     @Test
-    public void teamHasColour() {
+    void teamHasColour() {
 
         Player dan = new Player("Dan", null);
 
-        Team team = new Team(new ArrayList<>(){{add(dan);}}, TeamColour.GREEN);
+        Team team = new Team(new ArrayList<>() {{
+            add(dan);
+        }}, TeamColour.GREEN);
 
         assertEquals(TeamColour.GREEN, team.getColour());
 
