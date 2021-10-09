@@ -1,7 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -49,12 +48,10 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
             if (selection.equalsIgnoreCase("q")) {
                 if (selected.size() >= minSelection) {
                     return selected;
-                }
-                else {
+                } else {
                     System.out.printf("-- Must select %s more options%n", minSelection - selected.size());
                 }
-            }
-            else {
+            } else {
                 try {
                     int n = Integer.parseInt(selection);
                     selected.add(options.get(n - 1));

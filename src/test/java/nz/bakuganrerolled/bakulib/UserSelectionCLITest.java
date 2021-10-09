@@ -4,9 +4,7 @@ package nz.bakuganrerolled.bakulib;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.ExtensionConfigurationException;
 
-import java.rmi.server.ExportException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @ExtendWith(LoggingExtension.class)
-public class UserSelectionCLITest {
+class UserSelectionCLITest {
 
     private static List<String> strOptions;
     private static List<Bakugan> bakuOptions;
@@ -30,7 +28,7 @@ public class UserSelectionCLITest {
         Bakugan baku5 = new Bakugan("Fifth Bakugan", 290, Attribute.AQUOS);
         Bakugan baku6 = new Bakugan("Sixth Bakugan", 290, Attribute.VENTUS);
 
-        strOptions = new ArrayList<>(){{
+        strOptions = new ArrayList<>() {{
             add("First Option");
             add("Second Option");
             add("Third Option");
@@ -38,7 +36,7 @@ public class UserSelectionCLITest {
             add("Fifth Option");
         }};
 
-        bakuOptions = new ArrayList<>(){{
+        bakuOptions = new ArrayList<>() {{
             add(baku1);
             add(baku2);
             add(baku3);
@@ -52,7 +50,7 @@ public class UserSelectionCLITest {
     void userSelectionHasMinimum() throws Exception {
         UserSelectionCLI<String> selectionCLI = new UserSelectionCLI<>();
 
-        withTextFromSystemIn("1","Q", "1", "Q").execute(()->{
+        withTextFromSystemIn("1", "Q", "1", "Q").execute(() -> {
             List<String> selected = selectionCLI
                     .setOptions(strOptions)
                     .setMinSelection(2)
@@ -65,7 +63,7 @@ public class UserSelectionCLITest {
     void userSelectionHasMaximum() throws Exception {
         UserSelectionCLI<String> selectionCLI = new UserSelectionCLI<>();
 
-        withTextFromSystemIn("1","1","1","1").execute(()->{
+        withTextFromSystemIn("1", "1", "1", "1").execute(() -> {
             List<String> selected = selectionCLI
                     .setOptions(strOptions)
                     .setMaxSelection(3)
@@ -110,7 +108,7 @@ public class UserSelectionCLITest {
 
             assertEquals(6, bakuOptions.size());
             assertEquals(2, selected.size());
-            assertEquals(bakuOptions.subList(0,2), selected);
+            assertEquals(bakuOptions.subList(0, 2), selected);
         });
     }
 }
