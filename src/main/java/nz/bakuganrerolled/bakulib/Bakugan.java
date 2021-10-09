@@ -60,4 +60,9 @@ public class Bakugan extends Item {
         this.gpower += gpower;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s %s (%sG)", name, attributes.toString(), gpower);
+    }
+
 }

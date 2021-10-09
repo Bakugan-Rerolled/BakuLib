@@ -55,4 +55,19 @@ class BakuganTest {
         Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
         assertFalse(tuskor.getAttributes().contains(Attribute.AQUOS));
     }
+
+    @Test
+    void bakuganStringRepresentation() {
+        Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS);
+        String expectedString = "Tuskor [PYRUS] (270G)";
+        assertEquals(expectedString, tuskor.toString());
+    }
+
+    @Test
+    void bakuganStringRepresentationWithMultipleAttributes() {
+        Bakugan tuskor = new Bakugan("Tuskor", 270, Attribute.PYRUS, Attribute.SUBTERRA);
+        String expectedString = "Tuskor [PYRUS, SUBTERRA] (270G)";
+        assertEquals(expectedString, tuskor.toString());
+    }
+
 }

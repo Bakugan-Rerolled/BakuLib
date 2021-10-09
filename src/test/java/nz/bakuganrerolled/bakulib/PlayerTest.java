@@ -47,7 +47,7 @@ class PlayerTest {
         Player dan = new Player("Dan", testDeck);
         Deck deck = dan.getDeck();
 
-        assertEquals("Tuskor", deck.getBakugan().get(0).toString());
+        assertEquals("Tuskor [PYRUS] (250G)", deck.getBakugan().get(0).toString());
         assertEquals("Pyrus Boost", deck.getGateCards().get(0).toString());
         assertEquals("Power Transfer", deck.getAbilityCards().get(0).toString());
     }
