@@ -22,7 +22,8 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
 
     @Override
     public List<T> select() {
-        System.out.println("# " + message);
+        if (!message.isEmpty())
+            System.out.println("# " + message);
 
         Scanner sc = new Scanner(System.in);
         List<T> selected = new ArrayList<>();
