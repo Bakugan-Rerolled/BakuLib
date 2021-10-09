@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public abstract class UserSelection<T> {
     protected int maxSelection;
 
     public UserSelection<T> setOptions(List<T> options) {
-        this.options = options;
+        this.options = new ArrayList<>(options);
         return this;
     }
 
