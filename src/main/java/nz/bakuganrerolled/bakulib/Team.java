@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +17,7 @@ public class Team {
     List<Player> players;
     TeamColour colour;
 
-    public Team(TeamColour colour, Player... players) {
+    public Team(TeamColour colour, Player... players) throws PlayerNotInTeamException {
         this.players = Arrays.asList(players);
         this.colour = colour;
 

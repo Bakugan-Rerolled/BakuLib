@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
+
 /**
  * Represents a card, such as a Gate Card or Ability Card.
  *
@@ -19,5 +21,5 @@ public abstract class Card extends Item {
         return effect;
     }
 
-    public abstract void activate(Player owner, Context battleContext);
+    public abstract void activate(Player owner, Context battleContext) throws UnsatisfiedQueryException;
 }

@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(LoggingExtension.class)
 class TeamTest {
     @Test
-    void teamHasPlayers() {
+    void teamHasPlayers() throws PlayerNotInTeamException {
 
         Player dan = new Player("Dan", null);
         Player shuji = new Player("Shuji", null);
@@ -24,7 +25,7 @@ class TeamTest {
     }
 
     @Test
-    void teamHasColour() {
+    void teamHasColour() throws PlayerNotInTeamException {
 
         Player dan = new Player("Dan", null);
 

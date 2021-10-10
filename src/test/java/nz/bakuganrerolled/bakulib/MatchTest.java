@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +22,7 @@ class MatchTest {
     }
 
     @Test
-    void matchHasTeams() {
+    void matchHasTeams() throws PlayerNotInTeamException {
         Team team1 = new Team(TeamColour.GREEN, shun);
         Team team2 = new Team(TeamColour.BROWN, alice);
 
@@ -37,7 +38,7 @@ class MatchTest {
     }
 
     @Test
-    void matchHasField() {
+    void matchHasField() throws PlayerNotInTeamException {
         TestField testField = new TestField();
         Team team = new Team(TeamColour.RED);
         Match match = new Match(new ArrayList<>() {{

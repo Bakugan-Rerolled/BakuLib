@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
+
 /**
  * Represents a Player.
  *
@@ -48,7 +50,8 @@ public class Player {
     /**
      * Sets the player's team.
      */
-    public void setTeam(Team team) {
+    public void setTeam(Team team) throws PlayerNotInTeamException {
+        if (!team.getPlayers().contains(this)) throw new PlayerNotInTeamException(String.format("Player %s is not in Team %s", name, team.getColour()));
         this.team = team;
     }
 

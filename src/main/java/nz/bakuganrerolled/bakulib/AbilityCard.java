@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
+
 /**
  * Represents an Ability Card.
  *
@@ -32,9 +34,9 @@ public class AbilityCard extends Card {
     }
 
     @Override
-    public void activate(Player owner, Context context) {
+    public void activate(Player owner, Context context) throws UnsatisfiedQueryException {
         if (query.check(owner, context)) {
             effect.activate(owner, context);
-        }
+        } else throw new UnsatisfiedQueryException("Query required for Effect not satisfied");
     }
 }
