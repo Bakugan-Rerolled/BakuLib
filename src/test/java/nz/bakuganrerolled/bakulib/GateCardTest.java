@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -69,4 +70,21 @@ class GateCardTest {
 
     }
 
+    @Test
+    void gateCardHasBakugan() {
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
+
+        Bakugan warius = new Bakugan("Warius", 280, Attribute.PYRUS);
+        Bakugan robotallion = new Bakugan("Robotallion", 300, Attribute.HAOS);
+
+        List<Bakugan> expectedBakugan = new ArrayList<>();
+
+        pyrusBoost.placeBakuganOnCard(warius);
+        expectedBakugan.add(warius);
+        assertEquals(expectedBakugan, pyrusBoost.getBakuganOnCard());
+
+        pyrusBoost.placeBakuganOnCard(robotallion);
+        expectedBakugan.add(robotallion);
+        assertEquals(expectedBakugan, pyrusBoost.getBakuganOnCard());
+    }
 }
