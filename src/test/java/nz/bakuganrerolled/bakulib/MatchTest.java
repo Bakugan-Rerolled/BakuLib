@@ -5,7 +5,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -39,7 +42,7 @@ class MatchTest {
 
     @Test
     void matchHasField() throws PlayerNotInTeamException {
-        TestField testField = new TestField();
+        Field testField = new Field() {};
         Team team = new Team(TeamColour.RED);
         Match match = new Match(new ArrayList<>() {{
             add(team);
@@ -47,11 +50,4 @@ class MatchTest {
         assertEquals(testField, match.getField());
     }
 
-    static class TestField implements Field {
-
-        @Override
-        public void setGateCard(GateCard gc) {
-        }
-
-    }
 }
