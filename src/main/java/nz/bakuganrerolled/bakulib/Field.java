@@ -1,6 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
-import java.awt.Point;
+import java.awt.*;
 import java.util.Map;
 
 /**
@@ -12,15 +12,15 @@ import java.util.Map;
  */
 public interface Field {
 
-    default void setGateCard(GateCard gc) {
-        throw new UnsupportedOperationException();
-    }
-
     default void setGateCard(Point point, GateCard gc) {
         throw new UnsupportedOperationException();
     }
 
     default GateCard getGateCard() {
+        throw new UnsupportedOperationException();
+    }
+
+    default void setGateCard(GateCard gc) {
         throw new UnsupportedOperationException();
     }
 

@@ -49,9 +49,12 @@ public class Player {
 
     /**
      * Sets the player's team.
+     *
+     * @throws PlayerNotInTeamException If a Team tries to assert ownership over a Player it does not have
      */
     public void setTeam(Team team) throws PlayerNotInTeamException {
-        if (!team.getPlayers().contains(this)) throw new PlayerNotInTeamException(String.format("Player %s is not in Team %s", name, team.getColour()));
+        if (!team.getPlayers().contains(this))
+            throw new PlayerNotInTeamException(String.format("Player %s is not in Team %s", name, team.getColour()));
         this.team = team;
     }
 
