@@ -4,7 +4,7 @@ package nz.bakuganrerolled.bakulib;
  * Represents the six elemental attributes.
  *
  * @author Matt Eden
- * @version 0.1
+ * @version 0.1.0
  * @since 0.1
  */
 public enum Attribute {

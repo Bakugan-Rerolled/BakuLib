@@ -7,7 +7,7 @@ import java.util.List;
  * Utility class which outlines how to obtain user input.
  *
  * @author Matt Eden
- * @version 0.1
+ * @version 0.1.0
  * @since 0.1
  */
 public abstract class UserSelection<T> {

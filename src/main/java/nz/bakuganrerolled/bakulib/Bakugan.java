@@ -8,7 +8,7 @@ import java.util.Set;
  * Represents a Bakugan.
  *
  * @author Matt Eden
- * @version 0.1
+ * @version 0.1.0
  * @since 0.1
  */
 public class Bakugan extends Item {

@@ -6,7 +6,7 @@ import java.util.List;
  * Represents a player's deck, which contains Bakugan, Gate Cards and Ability Cards.
  *
  * @author Matt Eden
- * @version 0.1
+ * @version 0.1.0
  * @since 0.1
  */
 public class Deck {

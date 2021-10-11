@@ -6,7 +6,7 @@ import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
  * Represents a card, such as a Gate Card or Ability Card.
  *
  * @author Matt Eden
- * @version 0.1
+ * @version 0.1.0
  * @since 0.1
  */
 public abstract class Card extends Item {
