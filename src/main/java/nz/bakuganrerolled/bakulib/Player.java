@@ -11,6 +11,8 @@ import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
  */
 public interface Player {
 
+    int MAX_HEALTH = 500;
+
     /**
      * Gets the player's name.
      *
@@ -45,7 +47,21 @@ public interface Player {
      * @return the Player's health.
      */
     default int getHealth() {
-        return 0;
+        return MAX_HEALTH;
     }
+
+    /**
+     * Decrease Player's health.
+     *
+     * Should not decrease health below 0.
+     * */
+    default void loseHealth(int health) {
+
+    }
+
+    /**
+     * Reset Player's health to MAX_HEALTH
+     * */
+    default void resetHealth() {}
 
 }
