@@ -21,12 +21,12 @@ class UserSelectionCLITest {
     @BeforeAll
     static void setup() {
 
-        Bakugan baku1 = new Bakugan("First Bakugan", 290, Attribute.PYRUS);
-        Bakugan baku2 = new Bakugan("Second Bakugan", 290, Attribute.SUBTERRA);
-        Bakugan baku3 = new Bakugan("Third Bakugan", 290, Attribute.HAOS);
-        Bakugan baku4 = new Bakugan("Fourth Bakugan", 290, Attribute.DARKUS);
-        Bakugan baku5 = new Bakugan("Fifth Bakugan", 290, Attribute.AQUOS);
-        Bakugan baku6 = new Bakugan("Sixth Bakugan", 290, Attribute.VENTUS);
+        Bakugan baku1 = new BaseBakugan("First Bakugan", 290, Attribute.PYRUS);
+        Bakugan baku2 = new BaseBakugan("Second Bakugan", 290, Attribute.SUBTERRA);
+        Bakugan baku3 = new BaseBakugan("Third Bakugan", 290, Attribute.HAOS);
+        Bakugan baku4 = new BaseBakugan("Fourth Bakugan", 290, Attribute.DARKUS);
+        Bakugan baku5 = new BaseBakugan("Fifth Bakugan", 290, Attribute.AQUOS);
+        Bakugan baku6 = new BaseBakugan("Sixth Bakugan", 290, Attribute.VENTUS);
 
         strOptions = new ArrayList<>() {{
             add("First Option");

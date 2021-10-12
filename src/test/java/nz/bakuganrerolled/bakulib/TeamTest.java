@@ -13,8 +13,8 @@ class TeamTest {
     @Test
     void teamHasPlayers() throws PlayerNotInTeamException {
 
-        Player dan = new Player("Dan", null);
-        Player shuji = new Player("Shuji", null);
+        Player dan = new BasePlayer("Dan", null);
+        Player shuji = new BasePlayer("Shuji", null);
 
         Team team = new Team(TeamColour.RED, dan, shuji);
 
@@ -27,7 +27,7 @@ class TeamTest {
     @Test
     void teamHasColour() throws PlayerNotInTeamException {
 
-        Player dan = new Player("Dan", null);
+        Player dan = new BasePlayer("Dan", null);
 
         Team team = new Team(TeamColour.GREEN, dan);
 

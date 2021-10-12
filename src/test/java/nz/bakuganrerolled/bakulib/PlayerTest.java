@@ -15,7 +15,7 @@ class PlayerTest {
 
     @BeforeAll
     static void setup() {
-        Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
 
         Effect blankEffect = (((owner, battleContext) -> {
         }));
@@ -38,13 +38,13 @@ class PlayerTest {
 
     @Test
     void playerHasName() {
-        Player dan = new Player("Dan", testDeck);
+        Player dan = new BasePlayer("Dan", testDeck);
         assertEquals("Dan", dan.getName());
     }
 
     @Test
     void playerHasDeck() {
-        Player dan = new Player("Dan", testDeck);
+        Player dan = new BasePlayer("Dan", testDeck);
         Deck deck = dan.getDeck();
 
         assertEquals("Tuskor [PYRUS] (250G)", deck.getBakugan().get(0).toString());

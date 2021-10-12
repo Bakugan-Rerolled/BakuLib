@@ -18,10 +18,19 @@ class MatchTest {
     private static Player shun;
     private static Player alice;
 
+    static class Match extends BaseMatch {
+        public Match(List<Team> teams, Field field) {
+            super(teams, field);
+        }
+
+        @Override
+        public void play() {}
+    }
+
     @BeforeAll
     static void setup() {
-        shun = new Player("Shun", null);
-        alice = new Player("Alice", null);
+        shun = new BasePlayer("Shun", null);
+        alice = new BasePlayer("Alice", null);
     }
 
     @Test
@@ -29,7 +38,7 @@ class MatchTest {
         Team team1 = new Team(TeamColour.GREEN, shun);
         Team team2 = new Team(TeamColour.BROWN, alice);
 
-        Match match = new Match(new ArrayList<>() {{
+        BaseMatch match = new Match(new ArrayList<>() {{
             add(team1);
             add(team2);
         }}, null);

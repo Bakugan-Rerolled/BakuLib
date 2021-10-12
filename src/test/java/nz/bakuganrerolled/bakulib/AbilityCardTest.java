@@ -95,8 +95,8 @@ class AbilityCardTest {
     void abilityCardWithoutQueryHasWorkingEffect() throws Exception {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
 
-        Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
-        Bakugan limulus = new Bakugan("Limulus", 260, Attribute.AQUOS);
+        Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);
 
         Deck danDeck = new Deck(new ArrayList<>() {{
             add(tuskor);
@@ -105,8 +105,8 @@ class AbilityCardTest {
             add(limulus);
         }}, null, null);
 
-        Player dan = new Player("Dan", danDeck);
-        Player marucho = new Player("Marucho", maruchoDeck);
+        Player dan = new BasePlayer("Dan", danDeck);
+        Player marucho = new BasePlayer("Marucho", maruchoDeck);
 
         Team danTeam = new Team(TeamColour.RED, dan);
         Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
@@ -133,8 +133,8 @@ class AbilityCardTest {
     void abilityCardWithQueryHasWorkingEffect() throws Exception {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
 
-        Bakugan tuskor = new Bakugan("Tuskor", 250, Attribute.PYRUS);
-        Bakugan limulus = new Bakugan("Limulus", 260, Attribute.AQUOS);
+        Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);
 
         Deck danDeck = new Deck(new ArrayList<>() {{
             add(tuskor);
@@ -143,8 +143,8 @@ class AbilityCardTest {
             add(limulus);
         }}, null, null);
 
-        Player dan = new Player("Dan", danDeck);
-        Player marucho = new Player("Marucho", maruchoDeck);
+        Player dan = new BasePlayer("Dan", danDeck);
+        Player marucho = new BasePlayer("Marucho", maruchoDeck);
 
         Team danTeam = new Team(TeamColour.RED, dan);
         Team maruchoTeam = new Team(TeamColour.BLUE, marucho);

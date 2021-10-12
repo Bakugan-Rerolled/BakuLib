@@ -43,8 +43,8 @@ class GateCardTest {
     void gateCardHasWorkingEffect() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
 
-        Bakugan warius = new Bakugan("Warius", 280, Attribute.PYRUS);
-        Bakugan robotallion = new Bakugan("Robotallion", 300, Attribute.HAOS);
+        Bakugan warius = new BaseBakugan("Warius", 280, Attribute.PYRUS);
+        Bakugan robotallion = new BaseBakugan("Robotallion", 300, Attribute.HAOS);
 
         Deck danDeck = new Deck(new ArrayList<>() {{
             add(warius);
@@ -53,8 +53,8 @@ class GateCardTest {
             add(robotallion);
         }}, null, null);
 
-        Player dan = new Player("Dan", danDeck);
-        Player runo = new Player("Runo", runoDeck);
+        Player dan = new BasePlayer("Dan", danDeck);
+        Player runo = new BasePlayer("Runo", runoDeck);
 
         Context context = new Context(null, pyrusBoost, new ArrayList<>() {{
             add(warius);
@@ -74,8 +74,8 @@ class GateCardTest {
     void gateCardHasBakugan() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
 
-        Bakugan warius = new Bakugan("Warius", 280, Attribute.PYRUS);
-        Bakugan robotallion = new Bakugan("Robotallion", 300, Attribute.HAOS);
+        Bakugan warius = new BaseBakugan("Warius", 280, Attribute.PYRUS);
+        Bakugan robotallion = new BaseBakugan("Robotallion", 300, Attribute.HAOS);
 
         List<Bakugan> expectedBakugan = new ArrayList<>();
 
