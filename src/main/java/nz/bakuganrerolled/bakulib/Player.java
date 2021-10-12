@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
+
 /**
  * Represents a Player.
  *
@@ -29,6 +31,13 @@ public interface Player {
      * @return the Player's Team.
      */
     Team getTeam();
+
+    /**
+     * Sets the player's team.
+     *
+     * @throws PlayerNotInTeamException if a Team tries to assert ownership over a Player it does not have
+     */
+    void setTeam(Team team) throws PlayerNotInTeamException;
 
     /**
      * Gets the player's health.
