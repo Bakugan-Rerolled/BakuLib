@@ -23,7 +23,7 @@ public interface Bakugan {
      *
      * @return A set of attributes
      */
-    Set<Attribute> getAttributes() ;
+    Set<Attribute> getAttributes();
 
     /**
      * Adds an attribute to the Bakugan.

@@ -14,7 +14,7 @@ public abstract class BaseMatch {
     private final Field field;
     private final List<Team> teams;
 
-    public BaseMatch(List<Team> teams, Field field) {
+    protected BaseMatch(List<Team> teams, Field field) {
         this.field = field;
         this.teams = Collections.unmodifiableList(teams);
     }
@@ -39,13 +39,13 @@ public abstract class BaseMatch {
 
     /**
      * Plays the match.
-     *
+     * <p>
      * Acts as an effective 'main' for BakuLib, as all
      * the core logic for an individual game between
      * two teams is contained in this method.
      *
      * <b>Must be implemented</b>
-     * */
+     */
     public abstract void play();
 
 }

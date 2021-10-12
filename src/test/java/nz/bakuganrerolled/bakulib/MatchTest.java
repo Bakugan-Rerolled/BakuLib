@@ -5,10 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,15 +15,6 @@ class MatchTest {
 
     private static Player shun;
     private static Player alice;
-
-    static class Match extends BaseMatch {
-        public Match(List<Team> teams, Field field) {
-            super(teams, field);
-        }
-
-        @Override
-        public void play() {}
-    }
 
     @BeforeAll
     static void setup() {
@@ -51,12 +40,23 @@ class MatchTest {
 
     @Test
     void matchHasField() throws PlayerNotInTeamException {
-        Field testField = new Field() {};
+        Field testField = new Field() {
+        };
         Team team = new Team(TeamColour.RED);
         Match match = new Match(new ArrayList<>() {{
             add(team);
         }}, testField);
         assertEquals(testField, match.getField());
+    }
+
+    static class Match extends BaseMatch {
+        public Match(List<Team> teams, Field field) {
+            super(teams, field);
+        }
+
+        @Override
+        public void play() {
+        }
     }
 
 }
