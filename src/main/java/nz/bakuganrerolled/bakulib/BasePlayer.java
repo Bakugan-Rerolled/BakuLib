@@ -50,7 +50,7 @@ public class BasePlayer implements Player {
     /**
      * Sets the player's team.
      *
-     * @throws PlayerNotInTeamException If a Team tries to assert ownership over a Player it does not have
+     * @throws PlayerNotInTeamException if a Team tries to assert ownership over a Player it does not have
      */
     public void setTeam(Team team) throws PlayerNotInTeamException {
         if (!team.getPlayers().contains(this))

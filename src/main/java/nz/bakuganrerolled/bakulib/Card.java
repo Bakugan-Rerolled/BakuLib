@@ -21,5 +21,5 @@ public abstract class Card extends Item {
         return effect;
     }
 
-    public abstract void activate(Player owner, Context battleContext) throws UnsatisfiedQueryException;
+    public abstract void activate(Player owner, Context context) throws UnsatisfiedQueryException;
 }

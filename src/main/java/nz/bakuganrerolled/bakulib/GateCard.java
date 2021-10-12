@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class GateCard extends Card {
 
-    private final List<Bakugan> bakuganOnCard;
+    private final List<BaseBakugan> bakuganOnCard;
 
     public GateCard(String name, Effect effect) {
         this.name = name;
@@ -30,14 +30,14 @@ public class GateCard extends Card {
      *
      * @return List of Bakugan on Card
      */
-    public List<Bakugan> getBakuganOnCard() {
+    public List<BaseBakugan> getBakuganOnCard() {
         return bakuganOnCard;
     }
 
     /**
      * Places a Bakugan on the Gate Card
      */
-    public void placeBakuganOnCard(Bakugan b) {
+    public void placeBakuganOnCard(BaseBakugan b) {
         bakuganOnCard.add(b);
     }
 }

@@ -27,7 +27,7 @@ public class Team {
     /**
      * Get players in the team.
      *
-     * @return List of Players
+     * @return the List of Players
      */
     public List<Player> getPlayers() {
         return players;
@@ -36,7 +36,7 @@ public class Team {
     /**
      * Get the colour of the team.
      *
-     * @return Team Colour
+     * @return the Team Colour
      */
     public TeamColour getColour() {
         return colour;
@@ -45,7 +45,7 @@ public class Team {
     /**
      * Gets every bakugan from every player in the team
      *
-     * @return List of bakugan in team
+     * @return a list of all Bakugan in the team
      */
     public List<Bakugan> getBakugan() {
         return players.stream().flatMap(p -> p.getDeck().getBakugan().stream()).collect(Collectors.toList());
