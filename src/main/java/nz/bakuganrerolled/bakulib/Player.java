@@ -1,7 +1,5 @@
 package nz.bakuganrerolled.bakulib;
 
-import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
-
 /**
  * Represents a Player.
  *
@@ -9,59 +7,36 @@ import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
  * @version 0.1.0
  * @since 0.1
  */
-public class Player {
-    private final String name;
-    private final Deck deck;
-    private Team team;
-
-    public Player(String name, Deck deck) {
-        this.name = name;
-        this.deck = deck;
-        this.team = null;
-    }
+public interface Player {
 
     /**
      * Gets the player's name.
      *
-     * @return Player's name.
+     * @return the Player's name.
      */
-    public String getName() {
-        return name;
-    }
+    String getName();
 
     /**
-     * Gets the player's deck.
+     * Gets the player's name.
      *
-     * @return Player's deck.
+     * @return the Player's Deck.
      */
-    public Deck getDeck() {
-        return deck;
-    }
+    Deck getDeck();
 
     /**
      * Gets the player's team.
      *
-     * @return Player's team.
+     * @return the Player's Team.
      */
-    public Team getTeam() {
-        return team;
-    }
+    Team getTeam();
 
     /**
-     * Sets the player's team.
+     * Gets the player's health.
      *
-     * @throws PlayerNotInTeamException If a Team tries to assert ownership over a Player it does not have
+     * @return the Player's health.
      */
-    public void setTeam(Team team) throws PlayerNotInTeamException {
-        if (!team.getPlayers().contains(this))
-            throw new PlayerNotInTeamException(String.format("Player %s is not in Team %s", name, team.getColour()));
-        this.team = team;
+    default int getHealth() {
+        return 0;
     }
 
-    @Override
-    public String toString() {
-        if (team != null)
-            return String.format("%s (Team %s)", name, team.getColour());
-        return name;
-    }
 }
