@@ -4,17 +4,17 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Represents a Match of Bakugan.
+ * Represents a base implementation of a Match of Bakugan.
  *
  * @author Matt Eden
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.1
  */
-public class Match {
+public abstract class BaseMatch {
     private final Field field;
     private final List<Team> teams;
 
-    public Match(List<Team> teams, Field field) {
+    public BaseMatch(List<Team> teams, Field field) {
         this.field = field;
         this.teams = Collections.unmodifiableList(teams);
     }
@@ -36,4 +36,16 @@ public class Match {
     public List<Team> getTeams() {
         return teams;
     }
+
+    /**
+     * Plays the match.
+     *
+     * Acts as an effective 'main' for BakuLib, as all
+     * the core logic for an individual game between
+     * two teams is contained in this method.
+     *
+     * <b>Must be implemented</b>
+     * */
+    public abstract void play();
+
 }

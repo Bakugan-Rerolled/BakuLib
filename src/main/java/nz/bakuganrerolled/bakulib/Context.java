@@ -6,16 +6,16 @@ import java.util.List;
  * Encapsulates several important elements of a battle.
  *
  * @author Matt Eden
- * @version 0.1.0
+ * @version 0.1.1
  * @since 0.1
  */
 public class Context {
-    private final Match match;
+    private final BaseMatch match;
     private final GateCard gateCard;
     private final List<Bakugan> bakugan;
     private final List<Player> players;
 
-    public Context(Match match, GateCard gateCard, List<Bakugan> bakugan, List<Player> players) {
+    public Context(BaseMatch match, GateCard gateCard, List<Bakugan> bakugan, List<Player> players) {
         this.match = match;
         this.gateCard = gateCard;
         this.bakugan = bakugan;
@@ -27,7 +27,7 @@ public class Context {
      *
      * @return The Match.
      */
-    public Match getMatch() {
+    public BaseMatch getMatch() {
         return match;
     }
 
