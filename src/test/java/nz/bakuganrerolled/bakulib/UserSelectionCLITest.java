@@ -111,4 +111,13 @@ class UserSelectionCLITest {
             assertEquals(bakuOptions.subList(0, 2), selected);
         });
     }
+
+    @Test
+    void userSelectionAllowsSelectingNone() throws Exception {
+        UserSelectionCLI<Bakugan> selectionCLI = new UserSelectionCLI<>();
+        withTextFromSystemIn("Q").execute(() -> {
+            List<Bakugan> selected = selectionCLI.setOptions(bakuOptions).select();
+            assertEquals(0, selected.size());
+        });
+    }
 }

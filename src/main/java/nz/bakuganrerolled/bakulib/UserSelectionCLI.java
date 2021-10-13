@@ -16,7 +16,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
     public UserSelectionCLI() {
         this.options = null;
         this.message = "";
-        this.minSelection = 1;
+        this.minSelection = 0;
         this.maxSelection = 0;
     }
 
