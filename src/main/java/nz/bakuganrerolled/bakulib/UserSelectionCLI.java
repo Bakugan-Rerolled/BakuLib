@@ -36,6 +36,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
             for (T option : options) {
                 System.out.println(++index + ". " + option.toString());
             }
+            System.out.println("(Q to quit)");
 
             System.out.print("Selection: ");
             selection = sc.next();
