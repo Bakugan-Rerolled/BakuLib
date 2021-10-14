@@ -52,16 +52,18 @@ public interface Player {
 
     /**
      * Decrease Player's health.
-     *
+     * <p>
      * Should not decrease health below 0.
-     * */
+     */
     default void loseHealth(int health) {
-
+        throw new UnsupportedOperationException();
     }
 
     /**
      * Reset Player's health to MAX_HEALTH
-     * */
-    default void resetHealth() {}
+     */
+    default void resetHealth() {
+        throw new UnsupportedOperationException();
+    }
 
 }

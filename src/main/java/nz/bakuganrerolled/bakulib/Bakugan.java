@@ -48,11 +48,11 @@ public interface Bakugan {
     void changeGPower(int gpower);
 
     default int getStamina() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
     default int getAgility() {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
 }
