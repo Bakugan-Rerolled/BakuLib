@@ -37,10 +37,12 @@ class TeamTest {
     }
 
     @Test
-    void teamThrowsPlayerNotInTeamException() throws PlayerNotInTeamException{
+    void teamThrowsPlayerNotInTeamException() throws PlayerNotInTeamException {
         Player marucho = new BasePlayer("Marucho", null);
         Team team = new Team(TeamColour.BLUE, marucho);
         Player julie = new BasePlayer("Julie", null);
-        assertThrows(PlayerNotInTeamException.class, ()->{julie.setTeam(team);});
+        assertThrows(PlayerNotInTeamException.class, () -> {
+            julie.setTeam(team);
+        });
     }
 }
