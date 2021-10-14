@@ -23,6 +23,14 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
 
     @Override
     public List<T> select() {
+
+        /*
+         * For when there's only one option available,
+         * skip the selection logic and just return it
+         * straight away
+         * */
+        if (this.options.size() == 1) return options;
+
         if (!message.isEmpty())
             System.out.println("# " + message);
 
