@@ -18,6 +18,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
         this.message = "";
         this.minSelection = 0;
         this.maxSelection = 0;
+        this.enableQuit = false;
     }
 
     @Override
@@ -31,12 +32,14 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
         int index;
         String selection;
 
+        if (!enableQuit) minSelection = Math.max(minSelection, 1);
+
         while (remaining > 0) {
             index = 0;
             for (T option : options) {
                 System.out.println(++index + ". " + option.toString());
             }
-            System.out.println("(Q to quit)");
+            if (enableQuit) System.out.println("(Q to quit)");
 
             System.out.print("Selection: ");
             selection = sc.next();

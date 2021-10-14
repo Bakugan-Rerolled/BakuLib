@@ -15,6 +15,7 @@ public abstract class UserSelection<T> {
     protected String message;
     protected int minSelection;
     protected int maxSelection;
+    protected boolean enableQuit;
 
     public UserSelection<T> setOptions(List<T> options) {
         this.options = new ArrayList<>(options);
@@ -33,6 +34,11 @@ public abstract class UserSelection<T> {
 
     public UserSelection<T> setMaxSelection(int maxSelection) {
         this.maxSelection = maxSelection;
+        return this;
+    }
+
+    public UserSelection<T> enableQuit() {
+        this.enableQuit = true;
         return this;
     }
 
