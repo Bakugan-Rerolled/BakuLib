@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.withTextFromSystemIn;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(LoggingExtension.class)
 class UserSelectionCLITest {
@@ -127,5 +126,14 @@ class UserSelectionCLITest {
         UserSelectionCLI<Bakugan> selectionCLI = new UserSelectionCLI<>();
         List<Bakugan> selected = selectionCLI.setOptions(bakuOptions.subList(0,1)).select();
         assertEquals(bakuOptions.get(0), selected.get(0));
+    }
+
+    @Test
+    void userSelectionCLIHandlesBadInput() throws Exception {
+        UserSelectionCLI<Bakugan> selectionCLI = new UserSelectionCLI<>();
+        withTextFromSystemIn("BAKUGAN", "1", "Q").execute(() -> {
+            List<Bakugan> selected = selectionCLI.setOptions(bakuOptions).select();
+            assertEquals(bakuOptions.get(0), selected.get(0));
+        });
     }
 }

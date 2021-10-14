@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -50,5 +51,15 @@ class PlayerTest {
         assertEquals("Tuskor [PYRUS] (250G)", deck.getBakugan().get(0).toString());
         assertEquals("Pyrus Boost", deck.getGateCards().get(0).toString());
         assertEquals("Power Transfer", deck.getAbilityCards().get(0).toString());
+    }
+
+    @Test
+    void playerToString() throws PlayerNotInTeamException {
+        Player dan = new BasePlayer("Dan", testDeck);
+        assertEquals("Dan", dan.toString());
+
+        Team team = new Team(TeamColour.RED, dan);
+
+        assertEquals("Dan (Team RED)", dan.toString());
     }
 }

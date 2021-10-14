@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(LoggingExtension.class)
 class TeamTest {
@@ -33,5 +34,13 @@ class TeamTest {
 
         assertEquals(TeamColour.GREEN, team.getColour());
 
+    }
+
+    @Test
+    void teamThrowsPlayerNotInTeamException() throws PlayerNotInTeamException{
+        Player marucho = new BasePlayer("Marucho", null);
+        Team team = new Team(TeamColour.BLUE, marucho);
+        Player julie = new BasePlayer("Julie", null);
+        assertThrows(PlayerNotInTeamException.class, ()->{julie.setTeam(team);});
     }
 }
