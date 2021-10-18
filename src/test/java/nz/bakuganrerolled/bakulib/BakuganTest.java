@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.item.Bakugan;
+import nz.bakuganrerolled.bakulib.item.BaseBakugan;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 

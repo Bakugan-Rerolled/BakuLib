@@ -1,5 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.item.GateCard;
+
 import java.awt.*;
 import java.util.Map;
 

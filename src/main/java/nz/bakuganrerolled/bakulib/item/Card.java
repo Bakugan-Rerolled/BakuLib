@@ -1,5 +1,8 @@
-package nz.bakuganrerolled.bakulib;
+package nz.bakuganrerolled.bakulib.item;
 
+import nz.bakuganrerolled.bakulib.Context;
+import nz.bakuganrerolled.bakulib.Effect;
+import nz.bakuganrerolled.bakulib.Player;
 import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
 
 /**

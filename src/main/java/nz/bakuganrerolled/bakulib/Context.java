@@ -1,5 +1,8 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.item.Bakugan;
+import nz.bakuganrerolled.bakulib.item.GateCard;
+
 import java.util.List;
 
 /**

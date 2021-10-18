@@ -1,4 +1,6 @@
-package nz.bakuganrerolled.bakulib;
+package nz.bakuganrerolled.bakulib.item;
+
+import nz.bakuganrerolled.bakulib.Attribute;
 
 import java.util.Set;
 

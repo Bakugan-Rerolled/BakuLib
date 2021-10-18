@@ -1,4 +1,4 @@
-package nz.bakuganrerolled.bakulib;
+package nz.bakuganrerolled.bakulib.item;
 
 /**
  * Represents an Item, such as a Bakugan or Card.

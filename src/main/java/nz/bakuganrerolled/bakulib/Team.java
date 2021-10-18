@@ -1,6 +1,7 @@
 package nz.bakuganrerolled.bakulib;
 
 import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
+import nz.bakuganrerolled.bakulib.item.Bakugan;
 
 import java.util.Arrays;
 import java.util.List;
