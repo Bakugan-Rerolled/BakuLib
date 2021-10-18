@@ -77,26 +77,26 @@ class AbilityCardTest {
 
     @Test
     void abilityCardHasName() {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
         assertEquals("Power Transfer", powerTransfer.getName());
     }
 
     @Test
     void abilityCardHasEffect() {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
         assertNotNull(powerTransfer.getEffect());
     }
 
     @Test
     void abilityCardHasQuery() {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
         assertNotNull(powerTransfer.getQuery());
     }
 
 
     @Test
     void abilityCardWithoutQueryHasWorkingEffect() throws Exception {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
 
         Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
         Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);
@@ -134,7 +134,7 @@ class AbilityCardTest {
 
     @Test
     void abilityCardWithQueryHasWorkingEffect() throws Exception {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", transferGPowerPyrus, isPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
 
         Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
         Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);

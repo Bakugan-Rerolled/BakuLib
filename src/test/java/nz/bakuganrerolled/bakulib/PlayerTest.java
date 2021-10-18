@@ -25,8 +25,8 @@ class PlayerTest {
         Effect blankEffect = (((owner, battleContext) -> {
         }));
 
-        GateCard pyrusBoost = new GateCard("Pyrus Boost", blankEffect);
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", blankEffect);
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "No description", blankEffect);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "No description", blankEffect);
 
         testDeck = new Deck(
                 new ArrayList<>() {{

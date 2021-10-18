@@ -32,19 +32,19 @@ class GateCardTest {
 
     @Test
     void gateCardHasName() {
-        GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
         assertEquals("Pyrus Boost", pyrusBoost.getName());
     }
 
     @Test
     void gateCardHasEffect() {
-        GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
         assertNotNull(pyrusBoost.getEffect());
     }
 
     @Test
     void gateCardHasWorkingEffect() {
-        GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
 
         Bakugan warius = new BaseBakugan("Warius", 280, Attribute.PYRUS);
         Bakugan robotallion = new BaseBakugan("Robotallion", 300, Attribute.HAOS);
@@ -75,7 +75,7 @@ class GateCardTest {
 
     @Test
     void gateCardHasBakugan() {
-        GateCard pyrusBoost = new GateCard("Pyrus Boost", increasePyrusGPower100);
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
 
         Bakugan warius = new BaseBakugan("Warius", 280, Attribute.PYRUS);
         Bakugan robotallion = new BaseBakugan("Robotallion", 300, Attribute.HAOS);

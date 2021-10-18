@@ -18,9 +18,9 @@ public class GateCard extends Card {
 
     private final List<Bakugan> bakuganOnCard;
 
-    public GateCard(String name, Effect effect) {
+    public GateCard(String name, String description, Effect effect) {
+        super(description, effect);
         this.name = name;
-        this.effect = effect;
         this.bakuganOnCard = new ArrayList<>();
     }
 

@@ -9,11 +9,17 @@ import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
  * Represents a card, such as a Gate Card or Ability Card.
  *
  * @author Matt Eden
- * @version 0.1.0
+ * @version 0.1.1
  * @since 0.1
  */
 public abstract class Card extends Item {
     protected Effect effect;
+    protected String description;
+
+    public Card(String description, Effect effect) {
+        this.description = description;
+        this.effect = effect;
+    }
 
     /**
      * Gets the Card's effect.
@@ -23,6 +29,16 @@ public abstract class Card extends Item {
     public Effect getEffect() {
         return effect;
     }
+
+    /**
+     * Gets the Card's description.
+     *
+     * @return The card's description.
+     * */
+    public String getDescription() {
+        return description;
+    }
+
 
     public abstract void activate(Player owner, Context context) throws UnsatisfiedQueryException;
 }

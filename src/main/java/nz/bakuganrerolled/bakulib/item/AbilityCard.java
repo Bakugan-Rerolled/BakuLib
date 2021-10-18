@@ -16,15 +16,15 @@ import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
 public class AbilityCard extends Card {
     private final Query query;
 
-    public AbilityCard(String name, Effect effect) {
+    public AbilityCard(String name, String description, Effect effect) {
+        super(description, effect);
         this.name = name;
-        this.effect = effect;
         this.query = ((owner, context) -> true);
     }
 
-    public AbilityCard(String name, Effect effect, Query query) {
+    public AbilityCard(String name, String description, Effect effect, Query query) {
+        super(description, effect);
         this.name = name;
-        this.effect = effect;
         this.query = query;
     }
 
