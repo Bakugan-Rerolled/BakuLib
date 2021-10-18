@@ -11,7 +11,7 @@ import java.util.List;
  * Represents a Gate Card.
  *
  * @author Matt Eden
- * @version 0.1.0
+ * @version 0.2.0
  * @since 0.1
  */
 public class GateCard extends Card {
