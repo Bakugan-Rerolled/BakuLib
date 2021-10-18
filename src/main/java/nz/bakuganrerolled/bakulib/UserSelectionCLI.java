@@ -8,7 +8,7 @@ import java.util.Scanner;
  * CLI Implementation of UserSelection.
  *
  * @author Matt Eden
- * @version 0.2.0
+ * @version 0.3.0
  * @since 0.1
  */
 public class UserSelectionCLI<T> extends UserSelection<T> {
@@ -19,6 +19,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
         this.minSelection = 0;
         this.maxSelection = 0;
         this.enableQuit = false;
+        this.skipListingOptions = false;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
          * skip the selection logic and just return it
          * straight away
          * */
-        if (this.options.size() == 1) return options;
+        if (skipListingOptions && this.options.size() == 1) return options;
 
         if (!message.isEmpty())
             System.out.println("# " + message);

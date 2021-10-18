@@ -7,7 +7,7 @@ import java.util.List;
  * Utility class which outlines how to obtain user input.
  *
  * @author Matt Eden
- * @version 0.1.0
+ * @version 0.1.2
  * @since 0.1
  */
 public abstract class UserSelection<T> {
@@ -16,6 +16,7 @@ public abstract class UserSelection<T> {
     protected int minSelection;
     protected int maxSelection;
     protected boolean enableQuit;
+    protected boolean skipListingOptions;
 
     public UserSelection<T> setOptions(List<T> options) {
         this.options = new ArrayList<>(options);
@@ -39,6 +40,11 @@ public abstract class UserSelection<T> {
 
     public UserSelection<T> enableQuit() {
         this.enableQuit = true;
+        return this;
+    }
+
+    public UserSelection<T> skipListingOptions() {
+        this.skipListingOptions = true;
         return this;
     }
 

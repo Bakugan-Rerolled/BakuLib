@@ -127,7 +127,7 @@ class UserSelectionCLITest {
     @Test
     void userSelectionStreamlinesSingleItemOptions() {
         UserSelectionCLI<Bakugan> selectionCLI = new UserSelectionCLI<>();
-        List<Bakugan> selected = selectionCLI.setOptions(bakuOptions.subList(0, 1)).select();
+        List<Bakugan> selected = selectionCLI.setOptions(bakuOptions.subList(0, 1)).skipListingOptions().select();
         assertEquals(bakuOptions.get(0), selected.get(0));
     }
 
