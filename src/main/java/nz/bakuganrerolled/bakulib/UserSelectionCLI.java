@@ -63,7 +63,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
                 try {
                     int n = Integer.parseInt(selection);
                     selected.add(options.get(n - 1));
-                    options.remove(n - 1);
+                    if (removeOnSelection) options.remove(n - 1);
                     remaining--;
                 } catch (NumberFormatException e) {
                     System.out.println("-- Must input number");

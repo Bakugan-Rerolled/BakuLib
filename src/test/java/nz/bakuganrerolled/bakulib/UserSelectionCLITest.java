@@ -56,6 +56,7 @@ class UserSelectionCLITest {
             List<String> selected = selectionCLI
                     .setOptions(strOptions)
                     .setMinSelection(2)
+                    .removeOnSelection()
                     .select();
             assertEquals(2, selected.size());
         });
@@ -69,6 +70,7 @@ class UserSelectionCLITest {
             List<String> selected = selectionCLI
                     .setOptions(strOptions)
                     .setMaxSelection(3)
+                    .removeOnSelection()
                     .select();
             assertEquals(3, selected.size());
         });
@@ -106,6 +108,7 @@ class UserSelectionCLITest {
             List<Bakugan> selected = selectionCLI
                     .setOptions(bakuOptions)
                     .setMinSelection(2)
+                    .removeOnSelection()
                     .select();
 
             assertEquals(6, bakuOptions.size());

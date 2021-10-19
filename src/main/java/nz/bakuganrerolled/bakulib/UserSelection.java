@@ -17,6 +17,7 @@ public abstract class UserSelection<T> {
     protected int maxSelection = 0;
     protected boolean enableQuit = false;
     protected boolean skipListingOptions = false;
+    protected boolean removeOnSelection = false;
 
     public UserSelection<T> setOptions(List<T> options) {
         this.options = new ArrayList<>(options);
@@ -45,6 +46,11 @@ public abstract class UserSelection<T> {
 
     public UserSelection<T> skipListingOptions() {
         this.skipListingOptions = true;
+        return this;
+    }
+
+    public UserSelection<T> removeOnSelection () {
+        this.removeOnSelection = true;
         return this;
     }
 
