@@ -13,15 +13,6 @@ import java.util.Scanner;
  */
 public class UserSelectionCLI<T> extends UserSelection<T> {
 
-    public UserSelectionCLI() {
-        this.options = null;
-        this.message = "";
-        this.minSelection = 0;
-        this.maxSelection = 0;
-        this.enableQuit = false;
-        this.skipListingOptions = false;
-    }
-
     @Override
     public List<T> select() {
 
