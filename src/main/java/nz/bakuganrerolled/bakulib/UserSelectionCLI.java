@@ -13,6 +13,14 @@ import java.util.Scanner;
  */
 public class UserSelectionCLI<T> extends UserSelection<T> {
 
+    private void listOptions() {
+        int index = 0;
+        for (T option : options) {
+            System.out.println(++index + ". " + option.toString());
+        }
+        if (enableQuit) System.out.println("(Q to quit)");
+    }
+
     @Override
     public List<T> select() {
 
@@ -29,17 +37,13 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
         Scanner sc = new Scanner(System.in);
         List<T> selected = new ArrayList<>();
         int remaining = (this.maxSelection == 0) ? options.size() : maxSelection;
-        int index;
         String selection;
 
         if (!enableQuit) minSelection = Math.max(minSelection, 1);
 
         while (remaining > 0) {
-            index = 0;
-            for (T option : options) {
-                System.out.println(++index + ". " + option.toString());
-            }
-            if (enableQuit) System.out.println("(Q to quit)");
+
+            listOptions();
 
             System.out.print("Selection: ");
             selection = sc.next();
