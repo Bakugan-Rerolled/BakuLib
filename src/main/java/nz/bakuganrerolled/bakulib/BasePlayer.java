@@ -30,6 +30,17 @@ public class BasePlayer implements Player {
     }
 
     /**
+     * Gets a short version of the player's name.
+     *
+     * For example, instead of "Dan Kuso", return "Dan".
+     *
+     * @return the first word in the Player's name
+     * */
+    public String getShortName() {
+        return name.split(" ")[0];
+    }
+
+    /**
      * Gets the player's deck.
      *
      * @return the Player's deck.

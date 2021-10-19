@@ -48,6 +48,12 @@ class PlayerTest {
     }
 
     @Test
+    void playerHasShortName() {
+        Player dan = new BasePlayer("Dan Kuso", testDeck);
+        assertEquals("Dan", dan.getShortName());
+    }
+
+    @Test
     void playerHasDeck() {
         Player dan = new BasePlayer("Dan", testDeck);
         Deck deck = dan.getDeck();

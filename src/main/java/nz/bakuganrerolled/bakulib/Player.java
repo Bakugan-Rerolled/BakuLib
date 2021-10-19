@@ -21,6 +21,15 @@ public interface Player {
     String getName();
 
     /**
+     * Gets a short version of the player's name.
+     *
+     * For example, instead of "Dan Kuso", return "Dan".
+     *
+     * @return the first word in the Player's name
+     * */
+    String getShortName();
+
+    /**
      * Gets the player's name.
      *
      * @return the Player's Deck.
