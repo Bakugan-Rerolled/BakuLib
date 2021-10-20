@@ -16,7 +16,7 @@ public abstract class Card extends Item {
     protected Effect effect;
     protected String description;
 
-    public Card(String description, Effect effect) {
+    protected Card(String description, Effect effect) {
         this.description = description;
         this.effect = effect;
     }

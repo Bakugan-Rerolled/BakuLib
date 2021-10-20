@@ -21,6 +21,11 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
         if (enableQuit) DisplayCLI.displayMessage("(Q to quit)");
     }
 
+    private void addSelectedOption(List<T> selected, int n) {
+        selected.add(options.get(n - 1));
+        if (removeOnSelection) options.remove(n - 1);
+    }
+
     @Override
     public List<T> select() {
 
@@ -53,22 +58,21 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
              * check to ensure they have selected
              * the minimum number of targets/options
              * */
-            if (selection.equalsIgnoreCase("q")) {
-                if (selected.size() >= minSelection) {
-                    return selected;
+            try {
+                if (selection.equalsIgnoreCase("q")) {
+                    if (selected.size() >= minSelection) {
+                        break;
+                    } else {
+                        DisplayCLI.displayError(String.format("Must select %s more options",
+                                minSelection - selected.size()));
+                    }
                 } else {
-                    DisplayCLI.displayMessage(String.format("-- Must select %s more options",
-                            minSelection - selected.size()));
-                }
-            } else {
-                try {
                     int n = Integer.parseInt(selection);
-                    selected.add(options.get(n - 1));
-                    if (removeOnSelection) options.remove(n - 1);
+                    addSelectedOption(selected, n);
                     remaining--;
-                } catch (NumberFormatException e) {
-                    DisplayCLI.displayMessage("-- Must input number");
                 }
+            } catch (NumberFormatException e) {
+                DisplayCLI.displayError("Must input number");
             }
         }
 

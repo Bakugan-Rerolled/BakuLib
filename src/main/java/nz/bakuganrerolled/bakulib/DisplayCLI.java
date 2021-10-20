@@ -6,19 +6,23 @@ import org.apache.logging.log4j.Logger;
 
 public class DisplayCLI {
 
+    private DisplayCLI() {
+        throw new IllegalStateException("DisplayCLI is a utility class, and should not be instantiated");
+    }
+
     private static final Level GAME = Level.forName("GAME", 400);
     private static final Logger LOG = LogManager.getLogger();
 
     public static void displayInfo(String msg) {
-        LOG.log(GAME, String.format("%%%%%% %s", msg));
+        LOG.log(GAME, "%%% {}", msg);
     }
 
     public static void displayDialogue(String msg) {
-        LOG.log(GAME, String.format("%%!%% %s", msg));
+        LOG.log(GAME, "%!% {}", msg);
     }
 
     public static void displayError(String msg) {
-        LOG.log(GAME, String.format("!!! %s", msg));
+        LOG.log(GAME, "!!! {}", msg);
     }
 
     public static void displayMessage(String msg) {
@@ -26,6 +30,6 @@ public class DisplayCLI {
     }
 
     public static void displayState(String msg) {
-        LOG.log(GAME, String.format("#!# %s", msg));
+        LOG.log(GAME, "#!# {}", msg);
     }
 }
