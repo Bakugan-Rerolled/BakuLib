@@ -16,9 +16,9 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
     private void listOptions() {
         int index = 0;
         for (T option : options) {
-            System.out.println(++index + ". " + option.toString());
+            DisplayCLI.displayMessage(++index + ". " + option.toString());
         }
-        if (enableQuit) System.out.println("(Q to quit)");
+        if (enableQuit) DisplayCLI.displayMessage("(Q to quit)");
     }
 
     @Override
@@ -32,7 +32,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
         if (skipListingOptions && this.options.size() == 1) return options;
 
         if (!message.isEmpty())
-            System.out.println("# " + message);
+            DisplayCLI.displayMessage("# " + message);
 
         Scanner sc = new Scanner(System.in);
         List<T> selected = new ArrayList<>();
@@ -45,7 +45,7 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
 
             listOptions();
 
-            System.out.print("Selection: ");
+            DisplayCLI.displayMessage("Selection: ");
             selection = sc.next();
 
             /*
@@ -57,7 +57,8 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
                 if (selected.size() >= minSelection) {
                     return selected;
                 } else {
-                    System.out.printf("-- Must select %s more options%n", minSelection - selected.size());
+                    DisplayCLI.displayMessage(String.format("-- Must select %s more options",
+                            minSelection - selected.size()));
                 }
             } else {
                 try {
@@ -66,10 +67,9 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
                     if (removeOnSelection) options.remove(n - 1);
                     remaining--;
                 } catch (NumberFormatException e) {
-                    System.out.println("-- Must input number");
+                    DisplayCLI.displayMessage("-- Must input number");
                 }
             }
-            System.out.println(System.lineSeparator());
         }
 
         return selected;
