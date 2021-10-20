@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
 import nz.bakuganrerolled.bakulib.item.AbilityCard;
 import nz.bakuganrerolled.bakulib.item.Bakugan;
 import nz.bakuganrerolled.bakulib.item.BaseBakugan;
@@ -12,8 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.withTextFromSystemIn;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(LoggingExtension.class)
 class AbilityCardTest {
@@ -168,6 +168,17 @@ class AbilityCardTest {
             assertEquals(160, limulus.getGPower());
         });
 
+    }
+
+    @Test
+    void abilityCardWithFailedQueryThrowsException() {
+        AbilityCard boostedDragon = new AbilityCard("Boosted Dragon", "Permanently add 100G to Dragonoid", null, (p, context) -> {return false;});
+
+        Player dan = new BasePlayer("Dan", null);
+
+        Context context = new Context(null, null, null, null);
+
+        assertThrows(UnsatisfiedQueryException.class, () -> boostedDragon.activate(dan, context));
     }
 
 }
