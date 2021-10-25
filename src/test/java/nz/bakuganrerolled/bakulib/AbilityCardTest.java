@@ -1,5 +1,6 @@
 package nz.bakuganrerolled.bakulib;
 
+import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
 import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
 import nz.bakuganrerolled.bakulib.item.AbilityCard;
 import nz.bakuganrerolled.bakulib.item.Bakugan;
@@ -91,6 +92,44 @@ class AbilityCardTest {
     void abilityCardHasQuery() {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
         assertNotNull(powerTransfer.getQuery());
+    }
+
+    @Test
+    void abilityCardWasPlayed() throws Exception {
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
+        assertFalse(powerTransfer.wasPlayed());
+
+        Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);
+
+        Deck danDeck = new Deck(new ArrayList<>() {{
+            add(tuskor);
+        }}, null, null);
+        Deck maruchoDeck = new Deck(new ArrayList<>() {{
+            add(limulus);
+        }}, null, null);
+
+        Player dan = new BasePlayer("Dan", danDeck);
+        Player marucho = new BasePlayer("Marucho", maruchoDeck);
+
+        Team danTeam = new Team(TeamColour.RED, dan);
+        Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
+
+        Context battleContext = new Context(null, null,
+                new ArrayList<>() {{
+                    add(tuskor);
+                    add(limulus);
+                }},
+                new ArrayList<>() {{
+                    add(dan);
+                    add(marucho);
+                }});
+
+        withTextFromSystemIn("1", "1").execute(() -> {
+            powerTransfer.activate(dan, battleContext);
+        });
+
+        assertTrue(powerTransfer.wasPlayed());
     }
 
 

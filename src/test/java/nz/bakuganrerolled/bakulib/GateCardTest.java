@@ -10,8 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(LoggingExtension.class)
 class GateCardTest {
@@ -40,6 +39,39 @@ class GateCardTest {
     void gateCardHasEffect() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
         assertNotNull(pyrusBoost.getEffect());
+    }
+
+    @Test
+    void gateCardWasPlayed() {
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
+
+        assertFalse(pyrusBoost.wasPlayed());
+
+        Bakugan warius = new BaseBakugan("Warius", 280, Attribute.PYRUS);
+        Bakugan robotallion = new BaseBakugan("Robotallion", 300, Attribute.HAOS);
+
+        Deck danDeck = new Deck(new ArrayList<>() {{
+            add(warius);
+        }}, null, null);
+        Deck runoDeck = new Deck(new ArrayList<>() {{
+            add(robotallion);
+        }}, null, null);
+
+        Player dan = new BasePlayer("Dan", danDeck);
+        Player runo = new BasePlayer("Runo", runoDeck);
+
+        Context context = new Context(null, pyrusBoost, new ArrayList<>() {{
+            add(warius);
+            add(robotallion);
+        }}, new ArrayList<>() {{
+            add(dan);
+            add(runo);
+        }});
+
+        pyrusBoost.activate(dan, context);
+
+        assertTrue(pyrusBoost.wasPlayed());
+
     }
 
     @Test
