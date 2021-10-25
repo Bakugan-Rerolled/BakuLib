@@ -50,4 +50,19 @@ public class Deck {
     public List<AbilityCard> getAbilityCards() {
         return abilityCards;
     }
+
+    /**
+     * Resets all items within the Deck.
+     */
+    public void reset() {
+        for (Bakugan b : bakugan) {
+            b.reset();
+        }
+        for (GateCard gc : gateCards) {
+            gc.reset();
+        }
+        for (AbilityCard ac : abilityCards) {
+            ac.reset();
+        }
+    }
 }

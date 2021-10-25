@@ -75,4 +75,11 @@ public class BasePlayer implements Player {
             return String.format("%s (Team %s)", name, team.getColour());
         return name;
     }
+
+    /**
+     * Resets the Player's health and Deck.
+     * */
+    public void reset() {
+        deck.reset();
+    }
 }
