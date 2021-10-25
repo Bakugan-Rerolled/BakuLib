@@ -134,7 +134,7 @@ class AbilityCardTest {
 
     @Test
     void abilityCardWithQueryHasWorkingEffect() throws Exception {
-        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus, isPyrus);
 
         Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
         Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);
@@ -172,7 +172,7 @@ class AbilityCardTest {
 
     @Test
     void abilityCardWithFailedQueryThrowsException() {
-        AbilityCard boostedDragon = new AbilityCard("Boosted Dragon", "Permanently add 100G to Dragonoid", null, (p, context) -> {return false;});
+        AbilityCard boostedDragon = new AbilityCard("Boosted Dragon", "Permanently add 100G to Dragonoid", null, (p, context) -> false);
 
         Player dan = new BasePlayer("Dan", null);
 
