@@ -45,4 +45,10 @@ public class GateCard extends Card {
     public void placeBakuganOnCard(Bakugan b) {
         bakuganOnCard.add(b);
     }
+
+    @Override
+    public void reset() {
+        super.reset();
+        bakuganOnCard.clear();
+    }
 }

@@ -154,10 +154,13 @@ class GateCardTest {
             add(runo);
         }});
 
+        pyrusBoost.placeBakuganOnCard(warius);
+        pyrusBoost.placeBakuganOnCard(robotallion);
         pyrusBoost.activate(dan, context);
 
         pyrusBoost.reset();
 
         assertFalse(pyrusBoost.wasPlayed());
+        assertEquals(0, pyrusBoost.getBakuganOnCard().size());
     }
 }
