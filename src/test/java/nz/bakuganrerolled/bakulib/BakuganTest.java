@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.EnumSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -70,6 +71,26 @@ class BakuganTest {
         Bakugan tuskor = new BaseBakugan("Tuskor", 270, Attribute.PYRUS, Attribute.SUBTERRA);
         String expectedString = "Tuskor [PYRUS, SUBTERRA] (270G)";
         assertEquals(expectedString, tuskor.toString());
+    }
+
+    @Test
+    void bakuganCanReset() {
+        Bakugan tuskor = new BaseBakugan("Tuskor", 270, Attribute.PYRUS);
+
+        // Store originals
+        int originalGPower = tuskor.getGPower();
+        Set<Attribute> originalAttributes = tuskor.getAttributes();
+
+        // Change values
+        tuskor.changeGPower(100);
+        tuskor.addAttribute(Attribute.HAOS);
+
+        // Reset
+        tuskor.reset();
+
+        // Check that the reset was successful
+        assertEquals(originalGPower, tuskor.getGPower());
+        assertEquals(EnumSet.of(Attribute.PYRUS), tuskor.getAttributes());
     }
 
 }

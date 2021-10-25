@@ -49,6 +49,11 @@ public interface Bakugan {
      */
     void changeGPower(int gpower);
 
+    /**
+     * Reset the Bakugan back to its original state.
+     */
+    void reset();
+
     default int getStamina() {
         throw new UnsupportedOperationException();
     }

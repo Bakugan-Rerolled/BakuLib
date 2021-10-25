@@ -23,4 +23,6 @@ public abstract class Item {
     public String toString() {
         return name;
     }
+
+    public abstract void reset();
 }

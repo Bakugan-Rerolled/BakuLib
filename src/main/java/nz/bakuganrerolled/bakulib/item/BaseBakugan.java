@@ -14,13 +14,19 @@ import java.util.Set;
  * @since 0.1
  */
 public class BaseBakugan extends Item implements Bakugan {
-    private final Set<Attribute> attributes;
+    private Set<Attribute> attributes;
     private int gpower;
+
+    private final Set<Attribute> BASE_ATTRIBUTES;
+    private final int BASE_GPOWER;
 
     public BaseBakugan(String name, int gpower, Attribute... attributes) {
         this.name = name;
         this.gpower = gpower;
         this.attributes = EnumSet.copyOf(Arrays.asList(attributes));
+
+        BASE_ATTRIBUTES = EnumSet.copyOf(Arrays.asList(attributes));
+        BASE_GPOWER = gpower;
     }
 
     /**
@@ -67,4 +73,9 @@ public class BaseBakugan extends Item implements Bakugan {
         return String.format("%s %s (%sG)", name, attributes.toString(), gpower);
     }
 
+    @Override
+    public void reset() {
+        gpower = BASE_GPOWER;
+        attributes = BASE_ATTRIBUTES;
+    }
 }

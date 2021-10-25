@@ -58,4 +58,9 @@ public abstract class Card extends Item {
     }
 
     public abstract void activate(Player owner, Context context) throws UnsatisfiedQueryException;
+
+    @Override
+    public void reset() {
+        played = false;
+    }
 }

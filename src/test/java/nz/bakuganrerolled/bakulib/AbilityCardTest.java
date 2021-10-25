@@ -211,4 +211,40 @@ class AbilityCardTest {
         assertThrows(UnsatisfiedQueryException.class, () -> boostedDragon.activate(dan, context));
     }
 
+    @Test
+    void abilityCardCanReset() throws Exception {
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus, isPyrus);
+
+        Bakugan tuskor = new BaseBakugan("Tuskor", 250, Attribute.PYRUS);
+        Bakugan limulus = new BaseBakugan("Limulus", 260, Attribute.AQUOS);
+
+        Deck danDeck = new Deck(new ArrayList<>() {{
+            add(tuskor);
+        }}, null, null);
+        Deck maruchoDeck = new Deck(new ArrayList<>() {{
+            add(limulus);
+        }}, null, null);
+
+        Player dan = new BasePlayer("Dan", danDeck);
+        Player marucho = new BasePlayer("Marucho", maruchoDeck);
+
+        Context battleContext = new Context(null, null,
+                new ArrayList<>() {{
+                    add(tuskor);
+                    add(limulus);
+                }},
+                new ArrayList<>() {{
+                    add(dan);
+                    add(marucho);
+                }});
+
+        withTextFromSystemIn("1", "1").execute(() -> {
+            powerTransfer.activate(dan, battleContext);
+        });
+
+        powerTransfer.reset();
+
+        assertFalse(powerTransfer.wasPlayed());
+    }
+
 }
