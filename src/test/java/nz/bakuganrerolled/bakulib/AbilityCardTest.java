@@ -83,6 +83,12 @@ class AbilityCardTest {
     }
 
     @Test
+    void abilityCardHasDescription() {
+        AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
+        assertEquals("Transfer 100G from one Bakugan to another", powerTransfer.getDescription());
+    }
+
+    @Test
     void abilityCardHasEffect() {
         AbilityCard powerTransfer = new AbilityCard("Power Transfer", "Transfer 100G from one Bakugan to another", transferGPowerPyrus);
         assertNotNull(powerTransfer.getEffect());

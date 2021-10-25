@@ -36,6 +36,12 @@ class GateCardTest {
     }
 
     @Test
+    void gateCardHasDescription() {
+        GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
+        assertEquals("Add 100G to all Pyrus Bakugan", pyrusBoost.getDescription());
+    }
+
+    @Test
     void gateCardHasEffect() {
         GateCard pyrusBoost = new GateCard("Pyrus Boost", "Add 100G to all Pyrus Bakugan", increasePyrusGPower100);
         assertNotNull(pyrusBoost.getEffect());
