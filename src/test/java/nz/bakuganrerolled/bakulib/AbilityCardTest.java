@@ -43,13 +43,13 @@ class AbilityCardTest {
 
             // Collect all allied bakugan into a list
             List<Bakugan> alliedBakugan = context.getBakugan().stream()
-                    .filter(bakugan -> owner.getTeam().getBakugan().contains(bakugan))
+                    .filter(bakugan -> owner.getDeck().getBakugan().contains(bakugan))
                     .filter(bakugan -> bakugan.getAttributes().contains(Attribute.PYRUS))
                     .collect(Collectors.toList());
 
             // Collect all non-allied bakugan into a list
             List<Bakugan> enemyBakugan = context.getBakugan().stream().filter(
-                    (bakugan -> !owner.getTeam().getBakugan().contains(bakugan))
+                    (bakugan -> !owner.getDeck().getBakugan().contains(bakugan))
             ).collect(Collectors.toList());
 
             UserSelectionCLI<Bakugan> userSelectionCLI = new UserSelectionCLI<>();
@@ -112,9 +112,6 @@ class AbilityCardTest {
         Player dan = new BasePlayer("Dan", danDeck);
         Player marucho = new BasePlayer("Marucho", maruchoDeck);
 
-        Team danTeam = new Team(TeamColour.RED, dan);
-        Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
-
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
                     add(tuskor);
@@ -150,9 +147,6 @@ class AbilityCardTest {
         Player dan = new BasePlayer("Dan", danDeck);
         Player marucho = new BasePlayer("Marucho", maruchoDeck);
 
-        Team danTeam = new Team(TeamColour.RED, dan);
-        Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
-
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
                     add(tuskor);
@@ -187,9 +181,6 @@ class AbilityCardTest {
 
         Player dan = new BasePlayer("Dan", danDeck);
         Player marucho = new BasePlayer("Marucho", maruchoDeck);
-
-        Team danTeam = new Team(TeamColour.RED, dan);
-        Team maruchoTeam = new Team(TeamColour.BLUE, marucho);
 
         Context battleContext = new Context(null, null,
                 new ArrayList<>() {{
