@@ -52,4 +52,8 @@ public class Team {
         return players.stream().flatMap(p -> p.getDeck().getBakugan().stream()).collect(Collectors.toList());
     }
 
+    @Override
+    public String toString() {
+        return String.format("Team %s", colour);
+    }
 }
