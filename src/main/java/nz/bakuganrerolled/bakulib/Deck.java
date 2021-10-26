@@ -2,6 +2,7 @@ package nz.bakuganrerolled.bakulib;
 
 import nz.bakuganrerolled.bakulib.item.AbilityCard;
 import nz.bakuganrerolled.bakulib.item.Bakugan;
+import nz.bakuganrerolled.bakulib.item.Card;
 import nz.bakuganrerolled.bakulib.item.GateCard;
 
 import java.util.List;
@@ -55,14 +56,8 @@ public class Deck {
      * Resets all items within the Deck.
      */
     public void reset() {
-        for (Bakugan b : bakugan) {
-            b.reset();
-        }
-        for (GateCard gc : gateCards) {
-            gc.reset();
-        }
-        for (AbilityCard ac : abilityCards) {
-            ac.reset();
-        }
+        bakugan.forEach(Bakugan::reset);
+        gateCards.forEach(Card::reset);
+        abilityCards.forEach(Card::reset);
     }
 }

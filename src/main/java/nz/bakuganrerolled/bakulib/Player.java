@@ -22,11 +22,11 @@ public interface Player {
 
     /**
      * Gets a short version of the player's name.
-     *
+     * <p>
      * For example, instead of "Dan Kuso", return "Dan".
      *
      * @return the first word in the Player's name
-     * */
+     */
     String getShortName();
 
     /**

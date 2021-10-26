@@ -1,6 +1,5 @@
 package nz.bakuganrerolled.bakulib;
 
-import nz.bakuganrerolled.bakulib.exceptions.PlayerNotInTeamException;
 import nz.bakuganrerolled.bakulib.exceptions.UnsatisfiedQueryException;
 import nz.bakuganrerolled.bakulib.item.AbilityCard;
 import nz.bakuganrerolled.bakulib.item.Bakugan;

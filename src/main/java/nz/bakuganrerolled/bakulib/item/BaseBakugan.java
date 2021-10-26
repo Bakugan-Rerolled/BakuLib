@@ -14,11 +14,10 @@ import java.util.Set;
  * @since 0.1
  */
 public class BaseBakugan extends Item implements Bakugan {
-    private Set<Attribute> attributes;
-    private int gpower;
-
     private final Set<Attribute> BASE_ATTRIBUTES;
     private final int BASE_GPOWER;
+    private Set<Attribute> attributes;
+    private int gpower;
 
     public BaseBakugan(String name, int gpower, Attribute... attributes) {
         this.name = name;

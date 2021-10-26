@@ -31,11 +31,11 @@ public class BasePlayer implements Player {
 
     /**
      * Gets a short version of the player's name.
-     *
+     * <p>
      * For example, instead of "Dan Kuso", return "Dan".
      *
      * @return the first word in the Player's name
-     * */
+     */
     public String getShortName() {
         return name.split(" ")[0];
     }
@@ -78,7 +78,7 @@ public class BasePlayer implements Player {
 
     /**
      * Resets the Player's health and Deck.
-     * */
+     */
     public void reset() {
         deck.reset();
     }

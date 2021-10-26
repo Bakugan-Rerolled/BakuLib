@@ -30,10 +30,30 @@ public class FieldTest {
         }));
     }
 
+    @Test
+    void fieldHasGateCard() {
+        TestField testField = new TestField();
+        testField.setGateCard(pyrusBoost);
+        assertEquals(pyrusBoost, testField.getGateCard());
+    }
+
+    @Test
+    void fieldHasGateCardAtPoint() {
+        TestField testField = new TestField();
+        Point p = new Point(0, 0);
+        testField.setGateCard(p, pyrusBoost);
+
+        HashMap<Point, GateCard> testMap = new HashMap<>();
+        testMap.put(p, pyrusBoost);
+
+        assertEquals(testMap.size(), testField.getGateCards().size());
+        assertEquals(testMap.keySet(), testField.getGateCards().keySet());
+    }
+
     static class TestField implements Field {
 
-        private GateCard gateCard;
         private final HashMap<Point, GateCard> gateCardMap;
+        private GateCard gateCard;
 
         public TestField() {
             this.gateCardMap = new HashMap<>();
@@ -58,25 +78,5 @@ public class FieldTest {
         public Map<Point, GateCard> getGateCards() {
             return gateCardMap;
         }
-    }
-
-    @Test
-    void fieldHasGateCard() {
-        TestField testField = new TestField();
-        testField.setGateCard(pyrusBoost);
-        assertEquals(pyrusBoost, testField.getGateCard());
-    }
-
-    @Test
-    void fieldHasGateCardAtPoint() {
-        TestField testField = new TestField();
-        Point p = new Point(0,0);
-        testField.setGateCard(p, pyrusBoost);
-
-        HashMap<Point, GateCard> testMap = new HashMap<>();
-        testMap.put(p, pyrusBoost);
-
-        assertEquals(testMap.size(), testField.getGateCards().size());
-        assertEquals(testMap.keySet(), testField.getGateCards().keySet());
     }
 }

@@ -49,7 +49,7 @@ public abstract class UserSelection<T> {
         return this;
     }
 
-    public UserSelection<T> removeOnSelection () {
+    public UserSelection<T> removeOnSelection() {
         this.removeOnSelection = true;
         return this;
     }

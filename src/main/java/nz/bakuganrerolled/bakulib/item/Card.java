@@ -36,7 +36,7 @@ public abstract class Card extends Item {
      * Gets the Card's description.
      *
      * @return The card's description.
-     * */
+     */
     public String getDescription() {
         return description;
     }
@@ -45,14 +45,14 @@ public abstract class Card extends Item {
      * Gets whether the card was played.
      *
      * @return 'True' if the card was played, 'false' otherwise.
-     * */
+     */
     public boolean wasPlayed() {
         return played;
     }
 
     /**
      * Sets the card as played.
-     * */
+     */
     public void setPlayed() {
         this.played = true;
     }

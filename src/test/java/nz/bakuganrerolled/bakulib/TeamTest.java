@@ -44,13 +44,13 @@ class TeamTest {
 
         Bakugan griffon = new BaseBakugan("Griffon", 210, Attribute.PYRUS);
 
-        Deck danDeck = new Deck(List.of(griffon),null,null);
+        Deck danDeck = new Deck(List.of(griffon), null, null);
 
         Player dan = new BasePlayer("Dan", danDeck);
 
         Team team = new Team(TeamColour.GREEN, dan);
 
-        assertEquals(List.of(griffon),team.getBakugan());
+        assertEquals(List.of(griffon), team.getBakugan());
     }
 
     @Test

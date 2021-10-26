@@ -6,12 +6,11 @@ import org.apache.logging.log4j.Logger;
 
 public class DisplayCLI {
 
+    private static final Level GAME = Level.forName("GAME", 400);
+    private static final Logger LOG = LogManager.getLogger();
     private DisplayCLI() {
         throw new IllegalStateException("DisplayCLI is a utility class, and should not be instantiated");
     }
-
-    private static final Level GAME = Level.forName("GAME", 400);
-    private static final Logger LOG = LogManager.getLogger();
 
     public static void displayInfo(String msg) {
         LOG.log(GAME, "%%% {}", msg);
