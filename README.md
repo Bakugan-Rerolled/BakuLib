@@ -4,7 +4,7 @@ This is a Maven library which defines a set of classes that make Bakugan-oriente
 and more streamlined.
 
 ## Usage
-Simply run `mvn install` and add the following dependency to your `pom.xml`:
+Simply run `mvn clean install` and add the following dependency to your `pom.xml`:
 ```
 <dependency>
     <groupId>nz.bakuganrerolled</groupId>
@@ -15,4 +15,6 @@ Simply run `mvn install` and add the following dependency to your `pom.xml`:
 Substituting `{version}` with the latest version of the Maven package. Check the Releases page for this.
 
 ## Documentation
-This is a work in progress.
+This project uses Javadoc for in-line documentation concerning classes and methods. If you would prefer a more user-friendly
+view of the Javadoc comments, you can simply run `mvn javadoc:javadoc`. Then, you can open the `index.html` file under 
+`target/site/apidocs/` and view the Javadoc documentation in your preferred web browser.
