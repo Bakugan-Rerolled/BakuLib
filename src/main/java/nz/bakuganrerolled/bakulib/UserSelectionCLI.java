@@ -73,6 +73,8 @@ public class UserSelectionCLI<T> extends UserSelection<T> {
                 }
             } catch (NumberFormatException e) {
                 DisplayCLI.displayError("Must input number");
+            } catch (IndexOutOfBoundsException e) {
+                DisplayCLI.displayError("Option specified does not exist");
             }
         }
 

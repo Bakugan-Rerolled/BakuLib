@@ -137,7 +137,7 @@ class UserSelectionCLITest {
     @Test
     void userSelectionCLIHandlesBadInput() throws Exception {
         UserSelectionCLI<Bakugan> selectionCLI = new UserSelectionCLI<>();
-        withTextFromSystemIn("BAKUGAN", "1", "Q").execute(() -> {
+        withTextFromSystemIn("BAKUGAN", "1000", "1", "Q").execute(() -> {
             List<Bakugan> selected = selectionCLI.setOptions(bakuOptions).select();
             assertEquals(bakuOptions.get(0), selected.get(0));
         });
