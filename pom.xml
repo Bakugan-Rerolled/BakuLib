@@ -7,6 +7,23 @@
     <groupId>nz.bakuganrerolled</groupId>
     <artifactId>bakulib</artifactId>
     <version>0.1.2</version>
+    <packaging>jar</packaging>
+
+    <name>BakuLib</name>
+    <description>The core library for Bakugan Rerolled Java projects</description>
+    <url>http://github.com/Bakugan-Rerolled/BakuLib</url>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License, Version 3.0</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.en.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/Bakugan-Rerolled/BakuLib</url>
+    </scm>
 
     <build>
         <plugins>
