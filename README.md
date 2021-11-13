@@ -1,4 +1,9 @@
-# BakuLib
+<div align="center">
+  <h1>BakuLib</h1>
+  <p><strong>Simple Maven package to support Java-based Bakugan game development.</strong></p>
+  <hr>
+</div>
+
 ## Overview
 This is a Maven library which defines a set of classes that make Bakugan-oriented development simpler, easier
 and more streamlined.
