@@ -13,6 +13,8 @@ body:
     id: version
     attributes:
       label: Which version is this for?
+    validations:
+      required: true
   - type: textarea
     id: the-issue
     attributes:
@@ -27,19 +29,19 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: dropdown
-      id: severity-level
-      attributes:
-        label: How severe is this bug?
-        description: Not all bugs are made equal.
-        multiple: false
-        options:
-          - Critical
-          - Moderate
-          - Low
-      validations:
-        required: true
+    id: severity-level
+    attributes:
+      label: How severe is this bug?
+      description: Not all bugs are made equal.
+      multiple: false
+      options:
+        - Critical
+        - Moderate
+        - Low
+    validations:
+      required: true
   - type: textarea
-      id: anything-else
-      attributes:
-        label: Is there anything else?
-        description: For example, extra information that doesn't fit above.
+    id: anything-else
+    attributes:
+      label: Is there anything else?
+      description: For example, extra information that doesn't fit above.
